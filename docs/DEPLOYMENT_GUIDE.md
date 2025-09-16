@@ -54,10 +54,10 @@ This guide walks you through deploying the Justin Wessels portfolio to Vercel wi
    - Go to Project Settings → Environment Variables
    - Add the following variables:
 
-   | Variable           | Value                              | Description                   |
-   | ------------------ | ---------------------------------- | ----------------------------- |
-   | `SITE_URL`         | `https://justinwessels.vercel.app` | Your deployed site URL        |
-   | `REVALIDATE_TOKEN` | `your-secure-random-token`         | Secret token for revalidation |
+   | Variable           | Value                       | Description                   |
+   | ------------------ | --------------------------- | ----------------------------- |
+   | `SITE_URL`         | `https://justinwessels.com` | Your deployed site URL        |
+   | `REVALIDATE_TOKEN` | `your-secure-random-token`  | Secret token for revalidation |
 
 2. **Generate REVALIDATE_TOKEN**:
    ```bash
@@ -72,7 +72,7 @@ This guide walks you through deploying the Justin Wessels portfolio to Vercel wi
 
 2. **Add Required Secrets**:
    - `GH_TOKEN`: GitHub Personal Access Token with repo access
-   - `REVALIDATE_URL`: `https://justinwessels.vercel.app/api/revalidate`
+   - `REVALIDATE_URL`: `https://justinwessels.com/api/revalidate`
    - `REVALIDATE_TOKEN`: Same value as set in Vercel
 
 ### Creating GitHub Token
@@ -96,10 +96,10 @@ This guide walks you through deploying the Justin Wessels portfolio to Vercel wi
 
 ```bash
 # Test case studies API
-curl https://justinwessels.vercel.app/api/case-studies/slugs
+curl https://justinwessels.com/api/case-studies/slugs
 
 # Test revalidation endpoint (should return 401 without token)
-curl -X POST https://justinwessels.vercel.app/api/revalidate
+curl -X POST https://justinwessels.com/api/revalidate
 ```
 
 ### 3. Test Dynamic Features

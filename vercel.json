@@ -13,7 +13,7 @@
         }
     },
     "env": {
-        "SITE_URL": "https://justinwessels.vercel.app"
+        "SITE_URL": "https://justinwessels.com"
     },
     "headers": [
         {

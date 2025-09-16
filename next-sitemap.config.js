@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://justinwessels.vercel.app',
+  siteUrl: process.env.SITE_URL || 'https://justinwessels.com',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ['/api/*'],
@@ -41,7 +41,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://justinwessels.vercel.app/sitemap.xml',
+      'https://justinwessels.com/sitemap.xml',
     ],
   },
 };

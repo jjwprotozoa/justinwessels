@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
-  const siteUrl = process.env.SITE_URL || 'https://justinwessels.vercel.app';
+  const siteUrl = process.env.SITE_URL || 'https://justinwessels.com';
   const ogImage = project.ogImage || `${siteUrl}/og/${params.slug}`;
 
   return {

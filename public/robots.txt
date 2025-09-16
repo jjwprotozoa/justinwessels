@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://justinwessels.vercel.app
+Host: https://justinwessels.com
 
 # Sitemaps
-Sitemap: https://justinwessels.vercel.app/sitemap.xml
+Sitemap: https://justinwessels.com/sitemap.xml

@@ -1,23 +1,13 @@
-import { getProjectById } from '@/lib/projects';
 import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-export async function GET(request: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
+export async function GET(request: NextRequest) {
   try {
-    const { slug } = await params;
-    const project = getProjectById(slug);
-    
-    if (!project) {
-      return new Response('Project not found', { status: 404 });
-    }
-
     const { searchParams } = new URL(request.url);
-    const title = searchParams.get('title') || project.title;
-    const status = searchParams.get('status') || project.status;
-    const stack = searchParams.get('stack') || project.stack.slice(0, 3).join(', ');
-    const updated = searchParams.get('updated') || new Date(project.pushedAt).toLocaleDateString();
+    const title = searchParams.get('title') || 'Justin Wessels - Full Stack Developer';
+    const description = searchParams.get('description') || 'Portfolio of Justin Wessels, a passionate full-stack developer creating innovative web applications and digital experiences.';
 
     return new ImageResponse(
       (
@@ -50,12 +40,12 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
             }}
           >
-            {/* Status badge */}
+            {/* Developer badge */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                backgroundColor: status === 'complete' ? '#10b981' : status === 'in-progress' ? '#f59e0b' : '#6b7280',
+                backgroundColor: '#3b82f6',
                 color: 'white',
                 padding: '8px 16px',
                 borderRadius: '20px',
@@ -66,7 +56,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
                 letterSpacing: '0.5px',
               }}
             >
-              {status === 'complete' ? 'Complete' : status === 'in-progress' ? 'In Progress' : 'Archived'}
+              Full Stack Developer
             </div>
 
             {/* Title */}
@@ -84,7 +74,21 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
               {title}
             </h1>
 
-            {/* Stack chips */}
+            {/* Description */}
+            <p
+              style={{
+                fontSize: '20px',
+                color: '#d1d5db',
+                textAlign: 'center',
+                margin: '0 0 32px 0',
+                maxWidth: '600px',
+                lineHeight: '1.4',
+              }}
+            >
+              {description}
+            </p>
+
+            {/* Tech stack chips */}
             <div
               style={{
                 display: 'flex',
@@ -94,7 +98,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
                 justifyContent: 'center',
               }}
             >
-              {stack.split(',').slice(0, 3).map((tech, index) => (
+              {['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS'].map((tech, index) => (
                 <div
                   key={index}
                   style={{
@@ -107,44 +111,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
                     border: '1px solid #374151',
                   }}
                 >
-                  {tech.trim()}
+                  {tech}
                 </div>
               ))}
-            </div>
-
-            {/* Updated date */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                color: '#9ca3af',
-                fontSize: '16px',
-                fontWeight: '500',
-              }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                style={{ marginRight: '8px' }}
-              >
-                <path
-                  d="M8 2V5M16 2V5M3.5 9.09H20.5M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12 13H12.01M12 17H12.01M8 17H8.01M16 17H16.01"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Updated {updated}
             </div>
           </div>
 

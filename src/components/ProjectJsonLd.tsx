@@ -10,15 +10,15 @@ export function ProjectJsonLd({ project, caseStudy }: ProjectJsonLdProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
-    '@id': `https://justinwessels.vercel.app/projects/${project.slug}`,
+    '@id': `https://justinwessels.com/projects/${project.slug}`,
     name: project.title,
     description: project.description,
     image: project.ogImage,
-    url: project.liveUrl || `https://justinwessels.vercel.app/projects/${project.slug}`,
+    url: project.liveUrl || `https://justinwessels.com/projects/${project.slug}`,
     author: {
       '@type': 'Person',
       name: 'Justin Wessels',
-      url: 'https://justinwessels.vercel.app',
+      url: 'https://justinwessels.com',
     },
     dateCreated: project.pushedAt,
     dateModified: project.pushedAt,

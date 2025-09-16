@@ -9,7 +9,7 @@ export async function GET() {
     .sort((a, b) => new Date(b.pushedAt).getTime() - new Date(a.pushedAt).getTime())
     .slice(0, 25);
 
-  const siteUrl = process.env.SITE_URL || 'https://justinwessels.vercel.app';
+  const siteUrl = process.env.SITE_URL || 'https://justinwessels.com';
   const currentDate = new Date().toISOString();
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>

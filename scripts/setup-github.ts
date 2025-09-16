@@ -115,7 +115,7 @@ async function setupGitHubIntegration() {
 
   // Get repository information
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
-  const repoName = packageJson.name || 'jjw-portfolio';
+  const repoName = packageJson.name || 'justinwessels';
   
   console.log(`\n📦 Repository: ${repoName}`);
   console.log('🔍 Checking repository access...');

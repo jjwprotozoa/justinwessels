@@ -17,7 +17,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 ## 📁 Project Structure
 
 ```
-jjw-portfolio/
+justinwessels/
 ├── src/
 │   ├── app/                    # Next.js App Router pages
 │   │   ├── page.tsx           # Homepage with featured projects
@@ -67,8 +67,8 @@ jjw-portfolio/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/username/jjw-portfolio.git
-cd jjw-portfolio
+git clone https://github.com/username/justinwessels.git
+cd justinwessels
 ```
 
 2. Install dependencies:
@@ -409,4 +409,4 @@ See [docs/VERCEL_ENVIRONMENT_VARIABLES.md](docs/VERCEL_ENVIRONMENT_VARIABLES.md)
 
 - Email: justin@example.com
 - GitHub: [@jjwprotozoa](https://github.com/jjwprotozoa)
-- Portfolio: [https://justinwessels.vercel.app](https://justinwessels.vercel.app)
+- Portfolio: [https://justinwessels.com](https://justinwessels.com)
