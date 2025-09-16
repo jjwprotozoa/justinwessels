@@ -17,7 +17,7 @@ export default function BusinessCardPage() {
   const allProjects = getAllProjects();
   const curatedProjects = CURATED_SLUGS
     .map(slug => allProjects.find(project => project.slug === slug))
-    .filter(Boolean);
+    .filter((project): project is NonNullable<typeof project> => project !== undefined);
 
   return (
     <div className="min-h-screen">

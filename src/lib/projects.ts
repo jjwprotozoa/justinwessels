@@ -7,6 +7,7 @@ function convertLegacyProject(item: Record<string, unknown>): Project {
     slug: String(item.id || ''),
     title: String(item.title || ''),
     description: String(item.description || ''),
+    source: 'github', // Legacy projects are from GitHub
     status: item.status === 'Completed' ? 'complete' : 
             item.status === 'In Development' ? 'in-progress' : 'archived',
     tier: item.featured ? 'flagship' : 'mvp',
@@ -35,7 +36,6 @@ export function getAllProjects(): Project[] {
     try {
       projectsCache = (projectsData as Record<string, unknown>[]).map(convertLegacyProject);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error('Error reading projects data:', error);
       projectsCache = [];
     }

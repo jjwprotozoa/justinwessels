@@ -40,7 +40,7 @@ export default function VenturesPage() {
               <ProjectCard
                 key={project.slug}
                 project={project}
-                externalLink={project.homepageUrl && !project.homepageUrl.includes('github.com')}
+                externalLink={Boolean(project.homepageUrl && !project.homepageUrl.includes('github.com'))}
               />
             ))}
           </div>
