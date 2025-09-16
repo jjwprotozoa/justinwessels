@@ -1,0 +1,14 @@
+title: ZeroForms
+include: true
+visibility: featured
+status: in-progress
+tier: flagship
+stack:
+  [React, TypeScript, Tailwind, Firebase, Cloud Functions, Notion, Make.com]
+roles: [Founder, Full-stack]
+homepage_url: https://zeroforms.app
+highlights:
+  - Single patient profile → share with any provider
+  - Intake workflows + secure exchange
+  - Provider portal & audit trail
+topics: [portfolio:include, domain:saas, health, automation]

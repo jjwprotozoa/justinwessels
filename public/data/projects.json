@@ -1,0 +1,176 @@
+[
+    {
+        "id": "curriculum-builder",
+        "title": "Curriculum Builder",
+        "description": "A comprehensive curriculum management system built with Next.js, featuring dynamic schedule generation, time slot management, and printable templates for educational institutions.",
+        "shortDescription": "Dynamic curriculum management with schedule generation",
+        "image": "/images/curriculum-builder.svg",
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Prisma",
+            "SQLite"
+        ],
+        "category": "Web Application",
+        "featured": true,
+        "status": "Completed",
+        "githubUrl": "https://github.com/username/curriculum-builder",
+        "liveUrl": "https://curriculum-builder.vercel.app",
+        "startDate": "2024-08-01",
+        "endDate": "2024-08-28",
+        "highlights": [
+            "Dynamic schedule generation with conflict detection",
+            "Time slot management system",
+            "Printable curriculum templates",
+            "Database-driven content management"
+        ],
+        "challenges": "Implementing complex scheduling algorithms while maintaining user-friendly interface",
+        "solutions": "Created a modular scheduling system with real-time conflict detection and intuitive drag-and-drop interface"
+    },
+    {
+        "id": "direct-dad",
+        "title": "DirectDad",
+        "description": "A secure video calling application designed for children to connect with their parents, featuring PIN-based authentication, WebRTC implementation, and real-time communication.",
+        "shortDescription": "Secure video calling app for parent-child communication",
+        "image": "/images/direct-dad.svg",
+        "technologies": [
+            "React",
+            "Vite",
+            "WebRTC",
+            "Supabase",
+            "Firebase"
+        ],
+        "category": "Mobile App",
+        "featured": true,
+        "status": "In Development",
+        "githubUrl": "https://github.com/username/direct-dad",
+        "liveUrl": "https://direct-dad.vercel.app",
+        "startDate": "2024-07-01",
+        "endDate": null,
+        "highlights": [
+            "PIN-based authentication system",
+            "WebRTC video calling implementation",
+            "Real-time database integration",
+            "Child-friendly UI design"
+        ],
+        "challenges": "Implementing secure authentication for children while maintaining ease of use",
+        "solutions": "Developed a simple PIN system with parental controls and secure WebRTC connections"
+    },
+    {
+        "id": "kids-call-home",
+        "title": "Kids Call Home",
+        "description": "A comprehensive communication platform for families, featuring video calls, messaging, and location sharing with a focus on child safety and parental oversight.",
+        "shortDescription": "Family communication platform with safety features",
+        "image": "/images/kids-call-home.svg",
+        "technologies": [
+            "React",
+            "TypeScript",
+            "Pusher",
+            "Vercel",
+            "Tailwind CSS"
+        ],
+        "category": "Web Application",
+        "featured": false,
+        "status": "Completed",
+        "githubUrl": "https://github.com/username/kids-call-home",
+        "liveUrl": "https://kids-call-home.vercel.app",
+        "startDate": "2024-06-01",
+        "endDate": "2024-07-15",
+        "highlights": [
+            "Real-time messaging with Pusher",
+            "Video calling capabilities",
+            "Location sharing features",
+            "Parental control dashboard"
+        ],
+        "challenges": "Building real-time features while ensuring child safety and data privacy",
+        "solutions": "Implemented comprehensive privacy controls and real-time monitoring features for parents"
+    },
+    {
+        "id": "mindmaster-pro",
+        "title": "MindMaster Pro",
+        "description": "A cognitive training and memory enhancement application with premium features, built as a Progressive Web App with offline capabilities and monetization strategies.",
+        "shortDescription": "Cognitive training PWA with premium features",
+        "image": "/images/mindmaster-pro.svg",
+        "technologies": [
+            "Vanilla JS",
+            "PWA",
+            "Service Workers",
+            "CSS3",
+            "HTML5"
+        ],
+        "category": "PWA",
+        "featured": false,
+        "status": "Completed",
+        "githubUrl": "https://github.com/username/mindmaster-pro",
+        "liveUrl": "https://mindmaster-pro.vercel.app",
+        "startDate": "2024-05-01",
+        "endDate": "2024-05-30",
+        "highlights": [
+            "Progressive Web App architecture",
+            "Offline functionality",
+            "Premium feature monetization",
+            "Cognitive training modules"
+        ],
+        "challenges": "Creating engaging cognitive training content while maintaining app performance",
+        "solutions": "Developed modular training modules with adaptive difficulty and offline-first architecture"
+    },
+    {
+        "id": "soundscape-studio",
+        "title": "SoundScape Studio",
+        "description": "An advanced audio mixing and sound design application with real-time audio processing, multiple audio tracks, and professional-grade audio effects.",
+        "shortDescription": "Professional audio mixing and sound design tool",
+        "image": "/images/soundscape-studio.svg",
+        "technologies": [
+            "Vanilla JS",
+            "Web Audio API",
+            "Canvas",
+            "CSS3",
+            "HTML5"
+        ],
+        "category": "Audio Tool",
+        "featured": true,
+        "status": "Completed",
+        "githubUrl": "https://github.com/username/soundscape-studio",
+        "liveUrl": "https://soundscape-studio.vercel.app",
+        "startDate": "2024-04-01",
+        "endDate": "2024-04-25",
+        "highlights": [
+            "Web Audio API integration",
+            "Real-time audio processing",
+            "Multi-track mixing capabilities",
+            "Professional audio effects"
+        ],
+        "challenges": "Implementing complex audio processing algorithms in the browser",
+        "solutions": "Leveraged Web Audio API with custom audio processing nodes and real-time visualization"
+    },
+    {
+        "id": "box-breather",
+        "title": "BoxBreather",
+        "description": "A mindfulness and breathing exercise application designed to help users manage stress and anxiety through guided breathing techniques and meditation sessions.",
+        "shortDescription": "Mindfulness and breathing exercise app",
+        "image": "/images/box-breather.svg",
+        "technologies": [
+            "Vanilla JS",
+            "PWA",
+            "CSS3",
+            "HTML5",
+            "Service Workers"
+        ],
+        "category": "Wellness App",
+        "featured": false,
+        "status": "Completed",
+        "githubUrl": "https://github.com/username/box-breather",
+        "liveUrl": "https://box-breather.vercel.app",
+        "startDate": "2024-03-01",
+        "endDate": "2024-03-20",
+        "highlights": [
+            "Guided breathing exercises",
+            "Meditation timer functionality",
+            "Progressive Web App features",
+            "Calming visual animations"
+        ],
+        "challenges": "Creating engaging visual feedback for breathing exercises",
+        "solutions": "Developed smooth CSS animations and interactive visual cues that respond to breathing patterns"
+    }
+]

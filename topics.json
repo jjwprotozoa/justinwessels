@@ -1,0 +1,47 @@
+{
+    "ruvoplayer": [
+        "portfolio:complete",
+        "domain:saas",
+        "react",
+        "typescript",
+        "firebase",
+        "tailwind",
+        "workers",
+        "hls-js"
+    ],
+    "zeroforms": [
+        "portfolio:in-progress",
+        "domain:saas",
+        "health",
+        "forms",
+        "automation",
+        "react",
+        "typescript",
+        "firebase"
+    ],
+    "codm-squad-up-arena": [
+        "portfolio:mvp",
+        "domain:gaming",
+        "firebase",
+        "discord",
+        "react",
+        "typescript"
+    ],
+    "valora-tribute": [
+        "portfolio:complete",
+        "domain:ecom",
+        "landing-page",
+        "seo",
+        "html",
+        "cloudflare"
+    ],
+    "curriculum-builder": [
+        "portfolio:in-progress",
+        "domain:edtech",
+        "nextjs",
+        "prisma",
+        "sqlite",
+        "shadcn",
+        "ollama"
+    ]
+}

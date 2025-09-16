@@ -1,0 +1,35 @@
+---
+slug: ruvoplay
+title: Ruvo Play — Multi-device subscription manager with hybrid billing
+stack: [React, TypeScript, Tailwind, Node, Firebase, HLS.js, Cloudflare Workers]
+roles: [Founder, Full-stack, Product]
+date: 2024-11-20
+updated: 2025-09-10
+outcomes:
+  - "Activated thousands of device sessions with ABR playback & Chromecast"
+  - "Reduced chargebacks via hybrid Stripe + PayFast flows"
+keywords: [saas, streaming, automation, subscriptions]
+---
+
+## Problem
+Subscription providers were inconsistent and payment processors sensitive to "streaming" wording. I needed a compliant, resilient way to manage device activations and billing.
+
+## Solution
+- **Activation codes** minted via Cloudflare Workers, validated per device
+- **Hybrid billing**: Stripe (intl) + PayFast (ZA) with plan toggles & proration
+- **Playback engine**: HLS.js with smart ABR, Chromecast, and error fallbacks
+- **Comms**: Discord webhooks for ops alerts; WhatsApp templates for CX
+
+## Architecture
+- Edge worker → KV cache for activation & rate-limits  
+- Firebase (Auth + Firestore) for users, devices, entitlements  
+- Next.js admin + public site, Functions for webhooks  
+- Observability: structured logs + webhook audits
+
+## Outcomes
+- Fewer billing disputes; smoother onboarding  
+- Faster support with activation traces and device history
+
+## Lessons
+- Don't fight processors—design compliant wording + flows.
+- Keep "source of truth" tiny (entitlements) and make everything else derivable.

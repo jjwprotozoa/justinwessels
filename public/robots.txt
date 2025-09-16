@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://justinwessels.vercel.app
+
+# Sitemaps
+Sitemap: https://justinwessels.vercel.app/sitemap.xml

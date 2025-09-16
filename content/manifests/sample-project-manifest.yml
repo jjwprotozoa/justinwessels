@@ -1,0 +1,19 @@
+title: Sample Project
+status: complete
+tier: flagship
+stack:
+  - React
+  - TypeScript
+  - Node.js
+roles:
+  - Full-stack Developer
+  - Product Manager
+live_url: https://sample.example.com
+highlights:
+  - Real-time collaboration
+  - User-friendly interface
+  - Scalable architecture
+topics:
+  - react
+  - typescript
+  - web-app

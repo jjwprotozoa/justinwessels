@@ -1,0 +1,13 @@
+# ZeroForms - Healthcare data exchange platform
+title: ZeroForms
+status: in-progress
+tier: flagship
+stack: [React, TypeScript, Tailwind, Firebase, Functions, Notion, Make.com]
+roles: [Founder, Full-stack, Product]
+homepage_url: https://zeroforms.app
+highlights:
+  - Single patient profile → share to any provider
+  - Intake workflows + secure data exchange
+  - Provider portal & audit trail
+metrics: { pilots: 0 }
+topics: [domain:saas, health, forms, automation, docs]

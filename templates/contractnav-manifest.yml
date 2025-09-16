@@ -1,0 +1,14 @@
+title: ContractNav
+include: true
+visibility: labs
+status: in-progress
+tier: mvp
+stack: [Next.js, TypeScript, Tailwind CSS, Government APIs]
+roles: [Developer, Founder]
+homepage_url: https://contractnav.com
+highlights:
+  - Government contracting opportunity tracker
+  - SAM.gov API integration
+  - Automated bid matching
+  - Sector-specific filtering
+topics: [portfolio:include, domain:government, contracting, automation]

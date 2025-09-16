@@ -1,0 +1,14 @@
+slug: startupbusinesscentre
+title: Startup Business Centre
+source: manual
+include: true
+visibility: ventures
+status: in-progress
+tier: mvp
+roles: [Founder]
+homepage_url: https://startupbusinesscentre.com
+highlights:
+  - U.S. business setup consultancy
+  - SEO automations for high-intent queries
+  - Back-office via Notion + Make.com
+topics: [portfolio:include, domain:business, consultancy, seo]

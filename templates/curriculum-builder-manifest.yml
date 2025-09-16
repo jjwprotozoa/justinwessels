@@ -1,0 +1,11 @@
+# Curriculum Builder - AI-powered educational planning tool
+title: Curriculum Builder (Pre-Primary)
+status: in-progress
+tier: experiment
+stack: [Next.js, TypeScript, Tailwind, shadcn, Prisma, SQLite, Ollama]
+roles: [Founder, Full-stack]
+highlights:
+  - Term/Week/Day schema for 43-week year
+  - AI plan generation using local models
+  - Printable exports + resource DB
+topics: [domain:edtech, nextjs, prisma, sqlite, ai]

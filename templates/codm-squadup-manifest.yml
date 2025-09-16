@@ -1,0 +1,12 @@
+# CODM SquadUp - Team discovery and matchmaking platform
+title: CODM SquadUp
+status: mvp
+tier: mvp
+stack: [React, TypeScript, Firebase, Cloud Functions, Discord Webhooks]
+roles: [Founder, Full-stack]
+homepage_url: https://github.com/jjwprotozoa/codm-squad-up-arena
+highlights:
+  - Team discovery filters (region, rank, role, mode, language)
+  - Discord forum thread automation + webhooks
+  - SEO & trend scraping via Cloud Functions
+topics: [domain:gaming, firebase, discord, automation]

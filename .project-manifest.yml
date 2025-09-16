@@ -1,0 +1,17 @@
+title: 'JJW Portfolio'
+status: complete
+tier: flagship
+stack: [Next.js, TypeScript, Tailwind CSS, shadcn/ui, Vercel]
+roles: [Founder, Full-stack Developer]
+live_url: https://jjw-portfolio.vercel.app
+homepage_url: https://jjw-portfolio.vercel.app
+highlights:
+  - 'Modern Next.js 15 with App Router'
+  - 'Automated GitHub data pipeline'
+  - 'Dark theme with next-themes'
+  - 'JSON-LD structured data for SEO'
+  - 'TypeScript with strict configuration'
+metrics:
+  stars: 0
+  deployments: 1
+topics: [domain:portfolio, nextjs, typescript, tailwind, vercel]

@@ -1,0 +1,14 @@
+# Ruvo Play - Multi-device subscription manager with hybrid billing
+title: Ruvo Play
+status: complete
+tier: flagship
+stack: [React, TypeScript, Tailwind, Node, Firebase, HLS.js, Cloudflare Workers]
+roles: [Founder, Full-stack, Product]
+live_url: https://ruvoplay.com
+homepage_url: https://ruvoplay.com
+highlights:
+  - Activation codes via Cloudflare Workers & KV
+  - Stripe + PayFast hybrid billing with proration
+  - Chromecast + ABR playback with HLS.js
+metrics: { users: 0, mrr: 'R0' }
+topics: [domain:saas, automation, streaming, workers, hls-js, docs]

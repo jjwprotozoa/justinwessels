@@ -1,0 +1,14 @@
+slug: justinsflightdeals
+title: Justin's Flight Deals
+source: manual
+include: true
+visibility: ventures
+status: in-progress
+tier: mvp
+roles: [Founder]
+homepage_url: https://justinsflightdeals.com
+highlights:
+  - Flight deal aggregation + affiliate model
+  - Targeting CPT and global routes
+  - MVP in progress
+topics: [portfolio:include, domain:travel, affiliate]

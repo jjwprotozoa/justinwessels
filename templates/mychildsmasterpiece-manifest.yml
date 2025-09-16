@@ -1,0 +1,12 @@
+title: My Child's Masterpiece
+include: true
+visibility: ventures
+status: in-progress
+tier: mvp
+roles: [Founder]
+homepage_url: https://mychildsmasterpiece.art
+highlights:
+  - Turn children's artwork into books
+  - Keepsake design & publishing
+  - Parent-focused user journey
+topics: [portfolio:include, domain:ecommerce, family, art]

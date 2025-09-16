@@ -1,0 +1,12 @@
+title: Fluid Investment Group
+include: true
+visibility: ventures
+status: complete
+tier: flagship
+roles: [Founder, Operator]
+homepage_url: https://fluidinvestmentgroup.com
+highlights:
+  - SAM.gov registration + subcontractor partnerships
+  - Bids & advisory for U.S. government contracts
+  - Ops + compliance workflows
+topics: [portfolio:include, domain:business, contracting]

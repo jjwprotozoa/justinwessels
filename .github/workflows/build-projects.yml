@@ -1,0 +1,98 @@
+name: Build Projects JSON
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-projects.ts'
+      - 'templates/**'
+      - '.github/workflows/build-projects.yml'
+  schedule:
+    - cron: '0 6 * * *' # Daily at 6 AM UTC
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          fetch-depth: 0 # Fetch full history for better git operations
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Build projects JSON
+        run: npm run build:projects
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Format JSON
+        run: npm run format:json
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Files changed:"
+            git status --porcelain
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          fi
+
+      - name: Commit changes
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add public/data/projects.json
+          git commit -m "chore: update projects.json [skip ci]
+
+          - Updated project data from GitHub repositories
+          - Generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          - Triggered by: ${{ github.event_name }}"
+          git push
+
+      - name: Revalidate deployed site (optional)
+        if: ${{ secrets.REVALIDATE_URL != '' && secrets.REVALIDATE_TOKEN != '' && steps.changes.outputs.has_changes == 'true' }}
+        run: |
+          echo "Triggering site revalidation..."
+          curl -sS -X POST "$REVALIDATE_URL" \
+            -H "x-revalidate-token: $REVALIDATE_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"message": "Projects updated via GitHub Action"}' || {
+            echo "Revalidation failed, but continuing..."
+            exit 0
+          }
+          echo "Site revalidation triggered successfully"
+        env:
+          REVALIDATE_URL: ${{ secrets.REVALIDATE_URL }}
+          REVALIDATE_TOKEN: ${{ secrets.REVALIDATE_TOKEN }}
+
+      - name: Create summary
+        if: always()
+        run: |
+          echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Triggered by**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Changes detected**: ${{ steps.changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Revalidation**: ${{ secrets.REVALIDATE_URL != '' && secrets.REVALIDATE_TOKEN != '' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timestamp**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY

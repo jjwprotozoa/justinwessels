@@ -1,0 +1,14 @@
+slug: mychildsmasterpiece
+title: My Child's Masterpiece
+source: manual
+include: true
+visibility: ventures
+status: in-progress
+tier: mvp
+roles: [Founder]
+homepage_url: https://mychildsmasterpiece.art
+highlights:
+  - Turn kids' art into hardcover keepsake books
+  - Parent-friendly upload & proofing flow
+  - Print & fulfillment pipeline
+topics: [portfolio:include, domain:ecommerce, family, art]

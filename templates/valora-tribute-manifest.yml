@@ -1,0 +1,12 @@
+# Valora Vale - Tribute Landing Page
+title: Valora Vale — Tribute Landing
+status: complete
+tier: mvp
+stack: [HTML, CSS, Cloudflare Pages]
+roles: [Creator, Engineer]
+live_url: https://tribute.valoravale.com
+highlights:
+  - Seductive single-page funnel w/ QR tiers
+  - Rich OG metadata + JSON-LD
+  - Hover-activated QR on desktop, tap redirect on mobile
+topics: [domain:ecom, landing-page, seo]

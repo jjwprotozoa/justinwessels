@@ -1,0 +1,12 @@
+title: Justin's Flight Deals
+include: true
+visibility: ventures
+status: in-progress
+tier: mvp
+roles: [Founder]
+homepage_url: https://justinsflightdeals.com
+highlights:
+  - Flight deal aggregation & affiliate model
+  - Targeting Cape Town & global routes
+  - Early-stage MVP
+topics: [portfolio:include, domain:travel, affiliate]
