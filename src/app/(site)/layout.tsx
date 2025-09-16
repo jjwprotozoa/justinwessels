@@ -5,8 +5,6 @@ export default function SiteLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const isDevelopment = process.env.NODE_ENV === 'development';
-
   return (
     <>
       {children}
