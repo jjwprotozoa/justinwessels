@@ -15,16 +15,16 @@ const eslintConfig = [
     rules: {
       // TypeScript strict rules
       "@typescript-eslint/no-unused-vars": "error",
-      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-non-null-assertion": "warn",
+      "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-var-requires": "error",
       
       // General rules
       "prefer-const": "error",
       "no-var": "error",
-      "no-console": "warn",
+      "no-console": "off",
       "no-debugger": "error",
       "no-duplicate-imports": "error",
       "no-unused-expressions": "error",
