@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 .vercel
+!.vercel/project.json
 *.local
 
 # Editor directories and files

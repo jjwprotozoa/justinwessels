@@ -1,4 +1,4 @@
-# .github/workflows/deploy-production.yml — Deploy V2 to Vercel production
+# .github/workflows/deploy-production.yml — Prebuilt static deploy (replaces Next.js production)
 name: Deploy Production
 
 on:
@@ -15,10 +15,41 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_PROJECT_ID: prj_foh9O7QvHmCofk8HwNbh4ak0kpur
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy to Vercel production
-        run: npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --scope=justins-projects-f7a019bf
-        env:
-          VERCEL_PROJECT_ID: prj_foh9O7QvHmCofk8HwNbh4ak0kpur
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install and build Vite site
+        run: |
+          npm ci
+          npm run build
+
+      - name: Package static output for Vercel (no Next.js)
+        run: |
+          mkdir -p .vercel/output/static
+          cp -r dist/* .vercel/output/static/
+          cat > .vercel/output/config.json << 'EOF'
+          {
+            "version": 3,
+            "routes": [
+              { "handle": "filesystem" },
+              { "src": "/(.*)", "dest": "/index.html" }
+            ]
+          }
+          EOF
+
+      - name: Deploy prebuilt site to Vercel production
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "::error::VERCEL_TOKEN secret is not set. Add it at GitHub → Settings → Secrets → Actions."
+            exit 1
+          fi
+          npx vercel deploy --prebuilt --prod --yes \
+            --token="${{ secrets.VERCEL_TOKEN }}" \
+            --scope=justins-projects-f7a019bf
