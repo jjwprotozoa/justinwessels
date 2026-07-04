@@ -61,9 +61,11 @@ function VentureCard({ venture }: { venture: (typeof ventures)[0] }) {
 export function VenturesSection({
   showAll = false,
   hideHeader,
+  compact,
 }: {
   showAll?: boolean
   hideHeader?: boolean
+  compact?: boolean
 }) {
   const displayed = showAll ? ventures : ventures
 
@@ -73,6 +75,7 @@ export function VenturesSection({
       eyebrow="Companies"
       title="Ventures"
       hideHeader={hideHeader}
+      compact={compact}
     >
       <div className="grid gap-4">
         {displayed.map((venture) => (

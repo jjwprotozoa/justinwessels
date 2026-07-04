@@ -1,7 +1,9 @@
 // src/components/ui/section.tsx — Reusable page section wrapper
 import { motion } from 'framer-motion'
-import { cn } from '@/lib/utils'
+import { Eyebrow } from '@/components/ui/eyebrow'
 import { useInView } from '@/hooks/useInView'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { cn } from '@/lib/utils'
 
 interface SectionProps {
   id?: string
@@ -13,6 +15,7 @@ interface SectionProps {
   description?: string
   animate?: boolean
   hideHeader?: boolean
+  compact?: boolean
 }
 
 export function Section({
@@ -25,19 +28,20 @@ export function Section({
   description,
   animate = true,
   hideHeader = false,
+  compact = false,
 }: SectionProps) {
   const { ref, inView } = useInView()
+  const reducedMotion = useReducedMotion()
 
   const content = (
-    <section id={id} className={cn('py-28 md:py-40', className)}>
+    <section
+      id={id}
+      className={cn(compact ? 'py-20 md:py-28' : 'py-28 md:py-40', className)}
+    >
       <div className={cn('mx-auto max-w-6xl px-6', containerClassName)}>
         {!hideHeader && (eyebrow || title || description) && (
-          <header className="mb-20 max-w-2xl">
-            {eyebrow && (
-              <p className="mb-4 text-sm font-medium tracking-wide text-muted uppercase">
-                {eyebrow}
-              </p>
-            )}
+          <header className={cn('max-w-2xl', compact ? 'mb-12' : 'mb-20')}>
+            {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
             {title && (
               <h2 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl lg:text-6xl">
                 {title}
@@ -53,7 +57,7 @@ export function Section({
     </section>
   )
 
-  if (!animate) return content
+  if (!animate || reducedMotion) return content
 
   return (
     <motion.div

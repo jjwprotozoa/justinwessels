@@ -26,6 +26,11 @@ export const kidsCallHome = {
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.kidscallhome',
   summary:
     'A safe, simple way for children to reach family — across iOS, Android, and web.',
+  pillars: [
+    'One-tap calling for children',
+    'Parent-controlled contacts',
+    'Available on iOS, Android, and web',
+  ],
   features: [
     {
       title: 'One-tap calling',

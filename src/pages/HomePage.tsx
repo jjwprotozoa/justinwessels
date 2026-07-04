@@ -17,12 +17,12 @@ export function HomePage() {
       <PageMetaTags meta={pageMeta.home} />
       <JsonLd data={getAllJsonLd()} />
       <Hero />
-      <MetricsBar />
+      <MetricsBar showHeader={false} variant="bar" className="-mt-4 pb-16 md:pb-20" />
       <KidsCallHomeSection />
       <MissionSection />
-      <EvidenceSection />
-      <JourneySection limit={4} />
-      <VenturesSection />
+      <EvidenceSection compact />
+      <JourneySection limit={4} compact />
+      <VenturesSection compact />
       <ContactSection compact />
     </>
   )

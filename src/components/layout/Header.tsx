@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 import { primaryNav } from '@/data/navigation'
 import { siteConfig } from '@/data/site'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export function Header() {
@@ -44,6 +45,9 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-2">
+            <Button asChild size="sm" className="hidden sm:inline-flex">
+              <Link to="/contact">Contact</Link>
+            </Button>
             <ThemeToggle className="hidden sm:flex" />
             <button
               type="button"
@@ -78,6 +82,13 @@ export function Header() {
                   )}
                 </Link>
               ))}
+              <Link
+                to="/contact"
+                className="mt-2 rounded-xl bg-primary px-4 py-3 text-center text-sm font-medium text-primary-foreground"
+                onClick={() => setOpen(false)}
+              >
+                Contact
+              </Link>
             </div>
             <div className="mt-4 flex justify-center">
               <ThemeToggle />

@@ -43,7 +43,13 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
 
   if (item.url) {
     return (
-      <a href={item.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full"
+        aria-label={`${item.title} (opens in new tab)`}
+      >
         {content}
       </a>
     )
@@ -51,7 +57,15 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
   return content
 }
 
-export function EvidenceSection({ limit, hideHeader }: { limit?: number; hideHeader?: boolean }) {
+export function EvidenceSection({
+  limit,
+  hideHeader,
+  compact,
+}: {
+  limit?: number
+  hideHeader?: boolean
+  compact?: boolean
+}) {
   const items = limit ? evidenceItems.slice(0, limit) : evidenceItems
 
   return (
@@ -60,6 +74,7 @@ export function EvidenceSection({ limit, hideHeader }: { limit?: number; hideHea
       title="Evidence"
       description="Verifiable facts. No testimonials."
       hideHeader={hideHeader}
+      compact={compact}
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (

@@ -43,7 +43,15 @@ function TimelineItem({
   )
 }
 
-export function JourneySection({ limit, hideHeader }: { limit?: number; hideHeader?: boolean }) {
+export function JourneySection({
+  limit,
+  hideHeader,
+  compact,
+}: {
+  limit?: number
+  hideHeader?: boolean
+  compact?: boolean
+}) {
   const milestones = limit ? journeyMilestones.slice(0, limit) : journeyMilestones
 
   return (
@@ -53,6 +61,7 @@ export function JourneySection({ limit, hideHeader }: { limit?: number; hideHead
       title="Founder journey"
       description="Companies founded. Products launched. Milestones reached."
       hideHeader={hideHeader}
+      compact={compact}
     >
       <div className="max-w-xl">
         {milestones.map((milestone, i) => (

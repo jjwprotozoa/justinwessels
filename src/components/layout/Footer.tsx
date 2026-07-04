@@ -13,7 +13,7 @@ export function Footer() {
           <div className="max-w-sm">
             <p className="text-lg font-semibold tracking-tight">{siteConfig.founder.name}</p>
             <p className="mt-2 text-sm text-muted leading-relaxed">
-              Building technology that solves meaningful real-world problems.
+              {siteConfig.founder.tagline}
             </p>
           </div>
 

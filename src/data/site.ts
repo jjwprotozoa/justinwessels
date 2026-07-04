@@ -9,7 +9,9 @@ export const siteConfig = {
   founder: {
     name: 'Justin Wessels',
     role: 'Founder & Builder',
+    eyebrow: 'Founder · Builder',
     tagline: 'Building technology people can trust.',
+    taglineEmphasis: 'trust',
     subheading:
       'I build products that solve meaningful problems. Kids Call Home is my flagship — trusted technology helping families stay connected worldwide.',
     email: 'hello@justinwessels.com',
