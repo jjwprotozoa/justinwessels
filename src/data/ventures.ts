@@ -17,7 +17,7 @@ export const ventures: Venture[] = [
     name: 'Kids Call Home',
     role: 'Founder',
     description:
-      'Trusted technology that helps families stay connected. Published on iOS, Android, and web. Available in 177 countries.',
+      'Trusted family communication. iOS, Android, and web. 177 countries.',
     status: 'primary',
     url: 'https://kidscallhome.com',
     founded: '2024',

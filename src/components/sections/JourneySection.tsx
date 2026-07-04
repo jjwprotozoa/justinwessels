@@ -15,7 +15,7 @@ function TimelineItem({
   isLast: boolean
 }) {
   return (
-    <div className="relative flex gap-6 pb-10">
+    <div className="relative flex gap-6 pb-8">
       {!isLast && (
         <div className="absolute top-3 left-[11px] h-full w-px bg-border" aria-hidden="true" />
       )}
@@ -28,16 +28,16 @@ function TimelineItem({
       />
       <div className="flex-1 pt-0">
         <div className="flex flex-wrap items-center gap-2">
-          <time className="text-sm font-medium text-muted">{milestone.date}</time>
+          <time className="text-sm font-medium text-muted tabular-nums">{milestone.date}</time>
           <Badge variant={milestone.status === 'active' ? 'active' : 'default'}>
             {milestone.type}
           </Badge>
         </div>
-        <h3 className="mt-1 text-lg font-medium">{milestone.title}</h3>
+        <h3 className="mt-1 text-base font-medium">{milestone.title}</h3>
         {milestone.company && (
           <p className="text-sm text-muted">{milestone.company}</p>
         )}
-        <p className="mt-2 text-sm text-muted leading-relaxed">{milestone.description}</p>
+        <p className="mt-1 text-sm text-muted leading-snug">{milestone.description}</p>
       </div>
     </div>
   )
@@ -51,10 +51,10 @@ export function JourneySection({ limit, hideHeader }: { limit?: number; hideHead
       id="journey"
       eyebrow="Timeline"
       title="Founder journey"
-      description="The story told through products launched, companies founded, and milestones reached."
+      description="Companies founded. Products launched. Milestones reached."
       hideHeader={hideHeader}
     >
-      <div className="max-w-2xl">
+      <div className="max-w-xl">
         {milestones.map((milestone, i) => (
           <TimelineItem
             key={milestone.id}
@@ -64,8 +64,8 @@ export function JourneySection({ limit, hideHeader }: { limit?: number; hideHead
         ))}
       </div>
 
-      {limit && (
-        <div className="mt-4">
+      {limit && journeyMilestones.length > limit && (
+        <div className="mt-8">
           <Button asChild variant="secondary">
             <Link to="/journey">
               Full timeline

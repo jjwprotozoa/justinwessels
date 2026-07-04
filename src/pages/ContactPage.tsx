@@ -23,7 +23,7 @@ export function ContactPage() {
         title={contactConfig.title}
         description={contactConfig.description}
       />
-      <Section className="pt-0" animate={false} eyebrow="Inquiry types" title="How can we help?">
+      <Section className="pt-0" animate={false} eyebrow="Inquiry types" title="Topics">
         <div className="flex flex-wrap gap-3">
           {contactConfig.inquiryTypes.map((type) => (
             <span

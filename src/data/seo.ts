@@ -24,12 +24,12 @@ export const pageMeta: Record<string, PageMeta> = {
   },
   journey: {
     title: 'Founder Journey — Justin Wessels',
-    description: 'The story of building Kids Call Home and products that solve real problems.',
+    description: 'Companies founded. Products launched. Milestones reached.',
     path: '/journey',
   },
   evidence: {
     title: 'Evidence — Justin Wessels',
-    description: 'Verifiable proof of Kids Call Home distribution, metrics, and impact.',
+    description: 'Verifiable facts from distribution, platforms, and public presence.',
     path: '/evidence',
   },
   ventures: {
@@ -92,7 +92,7 @@ export function buildSoftwareApplicationJsonLd() {
     applicationCategory: 'CommunicationApplication',
     operatingSystem: 'iOS, Android, Web',
     url: kidsCallHome.url,
-    description: kidsCallHome.mission.description,
+    description: kidsCallHome.summary,
     offers: {
       '@type': 'Offer',
       price: '0',

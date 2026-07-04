@@ -1,84 +1,72 @@
 // src/data/evidence.ts — Verifiable evidence (real items only)
-import { proofMetrics } from './metrics'
+import { getMetricValue } from './metrics'
 
-function metricDisplay(id: string): string {
-  return proofMetrics.find((m) => m.id === id)?.displayValue ?? ''
-}
+export type EvidenceType =
+  | 'app-store'
+  | 'play-store'
+  | 'website'
+  | 'search'
+  | 'global-availability'
+  | 'github'
+  | 'press'
+  | 'awards'
+  | 'speaking'
+  | 'downloads'
 
 export interface EvidenceItem {
   id: string
   title: string
   description: string
-  category: 'distribution' | 'impact'
+  type: EvidenceType
   url?: string
   status: 'verified'
-  icon: 'app-store' | 'play-store' | 'web' | 'github' | 'calls' | 'globe' | 'users'
+  value?: string
 }
 
 export const evidenceItems: EvidenceItem[] = [
   {
     id: 'app-store',
     title: 'Apple App Store',
-    description: 'Published iOS application available for download.',
-    category: 'distribution',
+    description: 'Published iOS application.',
+    type: 'app-store',
     url: 'https://apps.apple.com/app/kids-call-home',
     status: 'verified',
-    icon: 'app-store',
   },
   {
     id: 'play-store',
     title: 'Google Play',
-    description: 'Published Android application available for download.',
-    category: 'distribution',
+    description: 'Published Android application.',
+    type: 'play-store',
     url: 'https://play.google.com/store/apps/details?id=com.kidscallhome',
     status: 'verified',
-    icon: 'play-store',
   },
   {
-    id: 'web-platform',
-    title: 'Web Platform',
+    id: 'website',
+    title: 'Website',
     description: 'Production web application at kidscallhome.com.',
-    category: 'distribution',
+    type: 'website',
     url: 'https://kidscallhome.com',
     status: 'verified',
-    icon: 'web',
+  },
+  {
+    id: 'global-availability',
+    title: 'Global Availability',
+    description: `Available in ${getMetricValue('countries')} countries.`,
+    type: 'global-availability',
+    status: 'verified',
+    value: getMetricValue('countries'),
   },
   {
     id: 'github',
     title: 'GitHub',
-    description: 'Public engineering profile and project history.',
-    category: 'distribution',
+    description: 'Public engineering profile.',
+    type: 'github',
     url: 'https://github.com/justinwessels',
     status: 'verified',
-    icon: 'github',
-  },
-  {
-    id: 'trusted-adults',
-    title: 'Trusted Adults Connected',
-    description: `${metricDisplay('trusted-adults')} trusted adults connected on the platform.`,
-    category: 'impact',
-    status: 'verified',
-    icon: 'users',
-  },
-  {
-    id: 'family-calls',
-    title: 'Safe Family Calls',
-    description: `${metricDisplay('safe-family-calls')} safe family calls completed.`,
-    category: 'impact',
-    status: 'verified',
-    icon: 'calls',
-  },
-  {
-    id: 'global-availability',
-    title: 'Countries Available',
-    description: `Available in ${metricDisplay('countries')} countries via App Store and Google Play.`,
-    category: 'impact',
-    status: 'verified',
-    icon: 'globe',
   },
 ]
 
 export const evidenceCategories = [
   { id: 'distribution', label: 'Distribution' },
-  { id: 'impact', label: 'Impact' },
+  { id: 'presence', label: 'Presence' },
 ] as const

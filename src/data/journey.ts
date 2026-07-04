@@ -1,8 +1,8 @@
 // src/data/journey.ts — Founder journey timeline (completed and active milestones only)
-import { proofMetrics } from './metrics'
+import { getMetricValue } from './metrics'
 
-const countries = proofMetrics.find((m) => m.id === 'countries')?.displayValue ?? '177'
-const trustedAdults = proofMetrics.find((m) => m.id === 'trusted-adults')?.displayValue ?? '1,031+'
+const countries = getMetricValue('countries')
+const trustedAdults = getMetricValue('trusted-adults')
 
 export interface JourneyMilestone {
   id: string
@@ -17,21 +17,21 @@ export interface JourneyMilestone {
 
 export const journeyMilestones: JourneyMilestone[] = [
   {
-    id: 'started-building',
-    date: '2016',
-    year: 2016,
-    title: 'Started building products',
-    description: 'Began shipping software that solves real problems.',
-    type: 'milestone',
+    id: 'first-company',
+    date: '2022',
+    year: 2022,
+    title: 'First company founded',
+    description: 'Began building technology products.',
+    type: 'company',
     status: 'completed',
   },
   {
-    id: 'kch-concept',
+    id: 'kch-founded',
     date: '2024',
     year: 2024,
-    title: 'Kids Call Home — development',
-    description: 'Identified the family communication gap and began building.',
-    type: 'product',
+    title: 'Kids Call Home founded',
+    description: 'Company established to solve family communication.',
+    type: 'company',
     company: 'Kids Call Home',
     status: 'completed',
   },
@@ -39,8 +39,8 @@ export const journeyMilestones: JourneyMilestone[] = [
     id: 'kch-launch',
     date: '2025',
     year: 2025,
-    title: 'Kids Call Home — mobile launch',
-    description: 'Released on iOS and Android. First families connected.',
+    title: 'Mobile launch',
+    description: 'Released on iOS and Android.',
     type: 'product',
     company: 'Kids Call Home',
     status: 'completed',
@@ -49,8 +49,8 @@ export const journeyMilestones: JourneyMilestone[] = [
     id: 'kch-web',
     date: '2025',
     year: 2025,
-    title: 'Kids Call Home — web',
-    description: 'Extended the platform to web for broader accessibility.',
+    title: 'Web platform',
+    description: 'Extended to web.',
     type: 'product',
     company: 'Kids Call Home',
     status: 'completed',
@@ -59,8 +59,8 @@ export const journeyMilestones: JourneyMilestone[] = [
     id: 'kch-growth',
     date: '2026',
     year: 2026,
-    title: 'Kids Call Home — growth',
-    description: `Available in ${countries} countries. ${trustedAdults} trusted adults connected.`,
+    title: 'Global distribution',
+    description: `${countries} countries · ${trustedAdults} trusted adults.`,
     type: 'milestone',
     company: 'Kids Call Home',
     status: 'active',

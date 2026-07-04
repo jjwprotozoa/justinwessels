@@ -8,9 +8,8 @@ export interface ContactChannel {
 }
 
 export const contactConfig = {
-  title: 'Get in touch',
-  description:
-    'For partnerships, press inquiries, or conversations about building products that matter.',
+  title: 'Contact',
+  description: 'Partnerships, press, or product conversations.',
   channels: [
     {
       id: 'email',

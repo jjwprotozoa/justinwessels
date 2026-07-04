@@ -19,7 +19,6 @@ export function VenturesPage() {
       <PageHeader
         eyebrow="Companies"
         title="Ventures"
-        description="Kids Call Home — trusted technology that helps families stay connected."
       />
       <VenturesSection showAll hideHeader />
     </>

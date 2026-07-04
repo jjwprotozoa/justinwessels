@@ -3,15 +3,15 @@ export const siteConfig = {
   name: 'Justin Wessels',
   title: 'Justin Wessels — Founder of Kids Call Home',
   description:
-    'Justin Wessels builds technology that solves meaningful real-world problems. Founder of Kids Call Home, building trusted technology that helps families stay connected.',
+    'Justin Wessels builds technology people can trust. Founder of Kids Call Home and other products solving meaningful real-world problems.',
   url: 'https://justinwessels.com',
   locale: 'en_US',
   founder: {
     name: 'Justin Wessels',
     role: 'Founder & Builder',
-    tagline: 'Building products that solve real problems.',
+    tagline: 'Building technology people can trust.',
     subheading:
-      'Founder of Kids Call Home, building trusted technology that helps families stay connected.',
+      'I build products that solve meaningful problems. Kids Call Home is my flagship — trusted technology helping families stay connected worldwide.',
     email: 'hello@justinwessels.com',
     location: 'Global',
     sameAs: [
