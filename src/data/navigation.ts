@@ -1,4 +1,4 @@
-// src/data/navigation.ts — Site navigation structure
+// src/data/navigation.ts — Production navigation (launch routes only)
 export interface NavItem {
   label: string
   href: string
@@ -10,8 +10,7 @@ export const primaryNav: NavItem[] = [
   { label: 'Journey', href: '/journey', description: 'Founder timeline' },
   { label: 'Evidence', href: '/evidence', description: 'Verifiable proof' },
   { label: 'Ventures', href: '/ventures', description: 'Companies founded' },
-  { label: 'Writing', href: '/writing', description: 'Thoughts on building' },
-  { label: 'About', href: '/about', description: 'The founder' },
+  { label: 'Contact', href: '/contact', description: 'Get in touch' },
 ]
 
 export const footerNav: NavItem[] = [
@@ -19,18 +18,16 @@ export const footerNav: NavItem[] = [
   { label: 'Journey', href: '/journey' },
   { label: 'Evidence', href: '/evidence' },
   { label: 'Ventures', href: '/ventures' },
-  { label: 'Writing', href: '/writing' },
   { label: 'Contact', href: '/contact' },
 ]
 
 export const homeSections = [
   { id: 'hero', label: 'Home' },
-  { id: 'metrics', label: 'Metrics' },
+  { id: 'metrics', label: 'Proof' },
   { id: 'kids-call-home', label: 'Kids Call Home' },
   { id: 'mission', label: 'Mission' },
   { id: 'evidence', label: 'Evidence' },
   { id: 'journey', label: 'Journey' },
   { id: 'ventures', label: 'Ventures' },
-  { id: 'writing', label: 'Writing' },
   { id: 'contact', label: 'Contact' },
 ] as const

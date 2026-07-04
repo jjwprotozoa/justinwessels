@@ -22,26 +22,14 @@ function TimelineItem({
       <div
         className={cn(
           'relative z-10 mt-1 h-[22px] w-[22px] shrink-0 rounded-full border-2',
-          milestone.status === 'future'
-            ? 'border-dashed border-muted bg-background'
-            : milestone.status === 'active'
-              ? 'border-kch bg-kch'
-              : 'border-foreground bg-foreground',
+          milestone.status === 'active' ? 'border-kch bg-kch' : 'border-foreground bg-foreground',
         )}
         aria-hidden="true"
       />
       <div className="flex-1 pt-0">
         <div className="flex flex-wrap items-center gap-2">
           <time className="text-sm font-medium text-muted">{milestone.date}</time>
-          <Badge
-            variant={
-              milestone.status === 'future'
-                ? 'future'
-                : milestone.status === 'active'
-                  ? 'active'
-                  : 'default'
-            }
-          >
+          <Badge variant={milestone.status === 'active' ? 'active' : 'default'}>
             {milestone.type}
           </Badge>
         </div>

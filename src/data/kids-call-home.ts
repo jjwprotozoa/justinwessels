@@ -1,4 +1,10 @@
 // src/data/kids-call-home.ts — Flagship product data for Kids Call Home
+import { proofMetrics } from './metrics'
+
+function metricDisplay(id: string): string {
+  return proofMetrics.find((m) => m.id === id)?.displayValue ?? ''
+}
+
 export interface Feature {
   title: string
   description: string
@@ -6,8 +12,8 @@ export interface Feature {
 
 export interface Platform {
   name: string
-  status: 'live' | 'coming-soon'
-  url?: string
+  status: 'live'
+  url: string
 }
 
 export interface TimelineEvent {
@@ -55,8 +61,8 @@ export const kidsCallHome = {
       description: 'Built from the ground up with child safety as the primary constraint.',
     },
     {
-      title: 'Global availability',
-      description: 'Available in 40+ countries with localized experiences.',
+      title: 'Broad availability',
+      description: `Listed in ${metricDisplay('countries')} countries on App Store and Google Play.`,
     },
     {
       title: 'Reliable infrastructure',
@@ -65,14 +71,18 @@ export const kidsCallHome = {
   ] satisfies Feature[],
   platforms: [
     { name: 'iOS', status: 'live', url: 'https://apps.apple.com/app/kids-call-home' },
-    { name: 'Android', status: 'live', url: 'https://play.google.com/store/apps/details?id=com.kidscallhome' },
+    {
+      name: 'Android',
+      status: 'live',
+      url: 'https://play.google.com/store/apps/details?id=com.kidscallhome',
+    },
     { name: 'Web', status: 'live', url: 'https://kidscallhome.com' },
   ] satisfies Platform[],
   highlights: [
     { label: 'Platforms', value: 'iOS · Android · Web' },
-    { label: 'Availability', value: '40+ countries' },
-    { label: 'Focus', value: 'Family safety' },
-    { label: 'Status', value: 'Actively developed' },
+    { label: 'Trusted adults', value: metricDisplay('trusted-adults') },
+    { label: 'Safe calls', value: metricDisplay('safe-family-calls') },
+    { label: 'Countries', value: metricDisplay('countries') },
   ] satisfies Highlight[],
   timeline: [
     {
@@ -92,13 +102,17 @@ export const kidsCallHome = {
     },
     {
       date: '2026',
-      title: 'Global expansion',
-      description: 'Expanded to 40+ countries with growing user base.',
+      title: 'Store availability',
+      description: `Listed in ${metricDisplay('countries')} countries. ${metricDisplay('trusted-adults')} trusted adults connected.`,
     },
   ] satisfies TimelineEvent[],
   links: [
     { label: 'Visit Kids Call Home', url: 'https://kidscallhome.com', primary: true },
     { label: 'App Store', url: 'https://apps.apple.com/app/kids-call-home', primary: false },
-    { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.kidscallhome', primary: false },
+    {
+      label: 'Google Play',
+      url: 'https://play.google.com/store/apps/details?id=com.kidscallhome',
+      primary: false,
+    },
   ],
 } as const

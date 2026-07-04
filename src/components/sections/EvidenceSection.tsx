@@ -5,10 +5,8 @@ import {
   Smartphone,
   Globe,
   Code2,
-  Search,
   Phone,
-  Building2,
-  Package,
+  Users,
   ArrowRight,
 } from 'lucide-react'
 import { evidenceItems, type EvidenceItem } from '@/data/evidence'
@@ -22,11 +20,9 @@ const iconMap = {
   'play-store': Smartphone,
   web: Globe,
   github: Code2,
-  search: Search,
   calls: Phone,
   globe: Globe,
-  building: Building2,
-  package: Package,
+  users: Users,
 }
 
 function EvidenceCard({ item }: { item: EvidenceItem }) {
@@ -64,7 +60,7 @@ export function EvidenceSection({ limit, hideHeader }: { limit?: number; hideHea
       id="evidence"
       eyebrow="Proof"
       title="Evidence, not testimonials."
-      description="Verifiable facts for investors, journalists, partners, and due diligence."
+      description="Verifiable facts from App Store listings, platform analytics, and distribution."
       hideHeader={hideHeader}
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

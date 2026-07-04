@@ -21,7 +21,7 @@ export function EvidencePage() {
       <PageHeader
         eyebrow="Due diligence"
         title="Evidence"
-        description="Verifiable proof for investors, journalists, visa attorneys, and partners. No testimonials — only facts."
+        description="Verifiable proof of distribution, platform metrics, and impact."
       />
       <Section className="pt-0 pb-8" animate={false}>
         <div className="flex flex-wrap gap-3">

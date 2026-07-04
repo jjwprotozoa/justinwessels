@@ -1,4 +1,9 @@
-// src/data/journey.ts — Founder journey timeline through products and companies
+// src/data/journey.ts — Founder journey timeline (completed and active milestones only)
+import { proofMetrics } from './metrics'
+
+const countries = proofMetrics.find((m) => m.id === 'countries')?.displayValue ?? '177'
+const trustedAdults = proofMetrics.find((m) => m.id === 'trusted-adults')?.displayValue ?? '1,031+'
+
 export interface JourneyMilestone {
   id: string
   date: string
@@ -7,7 +12,7 @@ export interface JourneyMilestone {
   description: string
   type: 'company' | 'product' | 'milestone'
   company?: string
-  status: 'completed' | 'active' | 'future'
+  status: 'completed' | 'active'
 }
 
 export const journeyMilestones: JourneyMilestone[] = [
@@ -21,41 +26,11 @@ export const journeyMilestones: JourneyMilestone[] = [
     status: 'completed',
   },
   {
-    id: 'fluid-investment',
-    date: '2018',
-    year: 2018,
-    title: 'Founded Fluid Investment Group',
-    description: 'Built investment and financial technology solutions.',
-    type: 'company',
-    company: 'Fluid Investment Group',
-    status: 'completed',
-  },
-  {
-    id: 'access-innovation',
-    date: '2020',
-    year: 2020,
-    title: 'Founded Access Innovation Group',
-    description: 'Focused on accessibility and innovation in technology.',
-    type: 'company',
-    company: 'Access Innovation Group',
-    status: 'completed',
-  },
-  {
-    id: 'codmsquadup',
-    date: '2022',
-    year: 2022,
-    title: 'Founded CodmSquadUp',
-    description: 'Built community and gaming technology products.',
-    type: 'company',
-    company: 'CodmSquadUp',
-    status: 'active',
-  },
-  {
     id: 'kch-concept',
     date: '2024',
     year: 2024,
-    title: 'Kids Call Home — Concept',
-    description: 'Identified the family communication gap and began development.',
+    title: 'Kids Call Home — development',
+    description: 'Identified the family communication gap and began building.',
     type: 'product',
     company: 'Kids Call Home',
     status: 'completed',
@@ -64,7 +39,7 @@ export const journeyMilestones: JourneyMilestone[] = [
     id: 'kch-launch',
     date: '2025',
     year: 2025,
-    title: 'Kids Call Home — Launch',
+    title: 'Kids Call Home — mobile launch',
     description: 'Released on iOS and Android. First families connected.',
     type: 'product',
     company: 'Kids Call Home',
@@ -74,29 +49,20 @@ export const journeyMilestones: JourneyMilestone[] = [
     id: 'kch-web',
     date: '2025',
     year: 2025,
-    title: 'Kids Call Home — Web',
-    description: 'Extended platform to web for broader accessibility.',
+    title: 'Kids Call Home — web',
+    description: 'Extended the platform to web for broader accessibility.',
     type: 'product',
     company: 'Kids Call Home',
     status: 'completed',
   },
   {
-    id: 'kch-global',
+    id: 'kch-growth',
     date: '2026',
     year: 2026,
-    title: 'Kids Call Home — Global',
-    description: 'Expanded to 40+ countries. Growing user base.',
+    title: 'Kids Call Home — growth',
+    description: `Available in ${countries} countries. ${trustedAdults} trusted adults connected.`,
     type: 'milestone',
     company: 'Kids Call Home',
     status: 'active',
-  },
-  {
-    id: 'future-ventures',
-    date: 'Future',
-    year: 2030,
-    title: 'Next ventures',
-    description: 'Building the foundation for what comes next.',
-    type: 'milestone',
-    status: 'future',
   },
 ]

@@ -6,6 +6,7 @@ import { siteConfig } from '@/data/site'
 import { PageMetaTags } from '@/components/seo/PageMeta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { PageHeader } from '@/components/sections/PageHeader'
+import { ProofMetrics } from '@/components/sections/ProofMetrics'
 import { Section } from '@/components/ui/section'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -28,7 +29,9 @@ export function KidsCallHomePage() {
         description={kidsCallHome.tagline}
       />
 
-      <Section animate={false} className="pt-12">
+      <ProofMetrics id="kch-metrics" showHeader={false} compact />
+
+      <Section animate={false} className="pt-8">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <ProductMockup />
           <div className="space-y-8">
@@ -43,6 +46,19 @@ export function KidsCallHomePage() {
                 {kidsCallHome.mission.title}
               </h2>
               <p className="mt-3 text-lg leading-relaxed">{kidsCallHome.mission.description}</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {kidsCallHome.highlights.map((h) => (
+                <div
+                  key={h.label}
+                  className="rounded-xl border border-border bg-card px-4 py-2.5 shadow-premium"
+                >
+                  <p className="text-[10px] font-medium text-muted uppercase tracking-wide">
+                    {h.label}
+                  </p>
+                  <p className="text-sm font-medium">{h.value}</p>
+                </div>
+              ))}
             </div>
             <div className="flex flex-wrap gap-3">
               {kidsCallHome.links.map((link) => (
@@ -71,14 +87,14 @@ export function KidsCallHomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="Platforms" title="Available everywhere families are.">
+      <Section eyebrow="Platforms" title="Available on iOS, Android, and web.">
         <div className="flex flex-wrap gap-4">
           {kidsCallHome.platforms.map((p) => (
             <Card key={p.name} className="min-w-[140px] border-border/60">
               <CardContent className="p-6 text-center">
                 <p className="text-lg font-semibold">{p.name}</p>
-                <Badge variant={p.status === 'live' ? 'verified' : 'future'} className="mt-2">
-                  {p.status}
+                <Badge variant="verified" className="mt-2">
+                  Live
                 </Badge>
               </CardContent>
             </Card>

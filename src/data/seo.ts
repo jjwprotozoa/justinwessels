@@ -24,28 +24,18 @@ export const pageMeta: Record<string, PageMeta> = {
   },
   journey: {
     title: 'Founder Journey — Justin Wessels',
-    description: 'The story of building companies and products that solve real problems.',
+    description: 'The story of building Kids Call Home and products that solve real problems.',
     path: '/journey',
   },
   evidence: {
     title: 'Evidence — Justin Wessels',
-    description: 'Verifiable proof of products, companies, and impact.',
+    description: 'Verifiable proof of Kids Call Home distribution, metrics, and impact.',
     path: '/evidence',
   },
   ventures: {
     title: 'Ventures — Justin Wessels',
-    description: 'Companies founded by Justin Wessels.',
+    description: 'Kids Call Home — trusted technology that helps families stay connected.',
     path: '/ventures',
-  },
-  writing: {
-    title: 'Writing — Justin Wessels',
-    description: 'Essays on building products, family technology, and solving real problems.',
-    path: '/writing',
-  },
-  about: {
-    title: 'About — Justin Wessels',
-    description: 'Justin Wessels builds technology that solves meaningful real-world problems.',
-    path: '/about',
   },
   contact: {
     title: 'Contact — Justin Wessels',

@@ -1,100 +1,86 @@
-// src/data/metrics.ts — Data-driven metrics system with future API support
-export type MetricFormat = 'number' | 'text'
+// src/data/metrics.ts — Verified Kids Call Home proof metrics (static launch data)
 
-export interface Metric {
+// TODO: Replace static metrics with a safe public Kids Call Home metrics endpoint later.
+// Future endpoint shape:
+// GET https://kidscallhome.com/api/public-metrics
+// {
+//   trustedAdults: number,
+//   trustedAdults7d: number,
+//   callsCompleted: number,
+//   countriesAvailable: number,
+//   lastUpdated: string
+// }
+
+export interface ProofMetric {
   id: string
-  title: string
-  value: number | string
-  format: MetricFormat
-  suffix?: string
-  prefix?: string
-  description: string
-  lastUpdated: string
+  label: string
+  value: number
+  displayValue: string
   source: string
-  /** Future: endpoint for live metric updates */
-  apiEndpoint?: string
+  lastUpdated: string
+  isLive: boolean
+  futureApiKey: string
 }
 
-export const metricsConfig = {
-  lastRefreshed: '2026-07-01',
-  metrics: [
-    {
-      id: 'companies-founded',
-      title: 'Companies Founded',
-      value: 4,
-      format: 'number',
-      description: 'Ventures built from the ground up.',
-      lastUpdated: '2026-07-01',
-      source: 'Founder records',
-    },
-    {
-      id: 'published-apps',
-      title: 'Published Apps',
-      value: 3,
-      format: 'number',
-      description: 'Live on App Store, Play Store, and web.',
-      lastUpdated: '2026-07-01',
-      source: 'App Store & Play Store',
-    },
-    {
-      id: 'family-calls',
-      title: 'Family Calls Completed',
-      value: 10000,
-      format: 'number',
-      suffix: '+',
-      description: 'Real connections between families worldwide.',
-      lastUpdated: '2026-07-01',
-      source: 'Kids Call Home platform',
-      apiEndpoint: '/api/metrics/family-calls',
-    },
-    {
-      id: 'countries-reached',
-      title: 'Countries Reached',
-      value: 40,
-      format: 'number',
-      suffix: '+',
-      description: 'Families connected across borders.',
-      lastUpdated: '2026-07-01',
-      source: 'Kids Call Home analytics',
-      apiEndpoint: '/api/metrics/countries',
-    },
-    {
-      id: 'knowledge-pages',
-      title: 'Knowledge Pages',
-      value: 50,
-      format: 'number',
-      suffix: '+',
-      description: 'Documentation and guides published.',
-      lastUpdated: '2026-07-01',
-      source: 'Platform documentation',
-    },
-    {
-      id: 'years-building',
-      title: 'Years Building',
-      value: 10,
-      format: 'number',
-      suffix: '+',
-      description: 'Shipping products that matter.',
-      lastUpdated: '2026-07-01',
-      source: 'Founder records',
-    },
-    {
-      id: 'platforms',
-      title: 'Platforms',
-      value: 3,
-      format: 'number',
-      description: 'iOS, Android, and web.',
-      lastUpdated: '2026-07-01',
-      source: 'Product distribution',
-    },
-    {
-      id: 'safety-first',
-      title: 'Safety First',
-      value: 'Always',
-      format: 'text',
-      description: 'Family safety built into every decision.',
-      lastUpdated: '2026-07-01',
-      source: 'Product principles',
-    },
-  ] satisfies Metric[],
-} as const
+export const proofMetrics: ProofMetric[] = [
+  {
+    id: 'trusted-adults',
+    label: 'Trusted adults connected',
+    value: 1031,
+    displayValue: '1,031+',
+    source: 'Kids Call Home analytics',
+    lastUpdated: '2026-07-04',
+    isLive: false,
+    futureApiKey: 'trustedAdults',
+  },
+  {
+    id: 'weekly-joined',
+    label: 'Joined this week',
+    value: 106,
+    displayValue: '+106',
+    source: 'Kids Call Home analytics',
+    lastUpdated: '2026-07-04',
+    isLive: false,
+    futureApiKey: 'trustedAdults7d',
+  },
+  {
+    id: 'safe-family-calls',
+    label: 'Safe family calls',
+    value: 1900,
+    displayValue: '1,900+',
+    source: 'Kids Call Home analytics',
+    lastUpdated: '2026-07-04',
+    isLive: false,
+    futureApiKey: 'callsCompleted',
+  },
+  {
+    id: 'countries',
+    label: 'Countries available',
+    value: 177,
+    displayValue: '177',
+    source: 'App Store / Google Play availability',
+    lastUpdated: '2026-07-04',
+    isLive: false,
+    futureApiKey: 'countriesAvailable',
+  },
+]
+
+export const proofMetricsConfig = {
+  lastUpdated: '2026-07-04',
+  growthMetricId: 'weekly-joined',
+  headlineMetricIds: ['trusted-adults', 'safe-family-calls', 'countries'] as const,
+}
+
+export function getProofMetric(id: string): ProofMetric | undefined {
+  return proofMetrics.find((m) => m.id === id)
+}
+
+export function getHeadlineMetrics(): ProofMetric[] {
+  return proofMetricsConfig.headlineMetricIds
+    .map((id) => getProofMetric(id))
+    .filter((m): m is ProofMetric => m !== undefined)
+}
+
+export function getGrowthMetric(): ProofMetric | undefined {
+  return getProofMetric(proofMetricsConfig.growthMetricId)
+}

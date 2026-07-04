@@ -76,7 +76,7 @@ export function VenturesSection({
       id="ventures"
       eyebrow="Companies"
       title="Ventures"
-      description="Companies founded and built from the ground up."
+      description="Kids Call Home — the primary venture."
       hideHeader={hideHeader}
     >
       <div className="grid gap-4">
@@ -85,7 +85,7 @@ export function VenturesSection({
         ))}
       </div>
 
-      {!showAll && (
+      {!showAll && ventures.length > 1 && (
         <div className="mt-10">
           <Button asChild variant="secondary">
             <Link to="/ventures">

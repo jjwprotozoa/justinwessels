@@ -95,7 +95,7 @@ export function ProductMockup() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-        <p className="text-xs font-semibold">40+ countries</p>
+        <p className="text-xs font-semibold">177 countries</p>
       </motion.div>
     </div>
   )

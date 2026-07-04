@@ -5,7 +5,7 @@ export const mission = {
   paragraphs: [
     'Technology should bring people closer — not create barriers. Yet most communication tools are designed for adults, optimized for productivity, and built without considering the people who matter most.',
     'Kids Call Home exists because families spread across the world need something different. Something simple enough for a child. Safe enough for a parent. Reliable enough for the moments that matter.',
-    'This is not about building another app. It is about solving a real problem that affects millions of families every day.',
+    'This is not about building another app. It is about solving a real problem that families face every day.',
   ],
   principles: [
     {

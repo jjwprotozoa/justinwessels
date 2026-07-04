@@ -1,12 +1,18 @@
-// src/data/evidence.ts — Verifiable evidence cards for due diligence
+// src/data/evidence.ts — Verifiable evidence (real items only)
+import { proofMetrics } from './metrics'
+
+function metricDisplay(id: string): string {
+  return proofMetrics.find((m) => m.id === id)?.displayValue ?? ''
+}
+
 export interface EvidenceItem {
   id: string
   title: string
   description: string
-  category: 'distribution' | 'presence' | 'impact' | 'organization'
+  category: 'distribution' | 'impact'
   url?: string
-  status: 'verified' | 'growing' | 'active'
-  icon: 'app-store' | 'play-store' | 'web' | 'github' | 'search' | 'calls' | 'globe' | 'building' | 'package'
+  status: 'verified'
+  icon: 'app-store' | 'play-store' | 'web' | 'github' | 'calls' | 'globe' | 'users'
 }
 
 export const evidenceItems: EvidenceItem[] = [
@@ -39,58 +45,40 @@ export const evidenceItems: EvidenceItem[] = [
   },
   {
     id: 'github',
-    title: 'Open Development',
-    description: 'Active engineering presence and public contributions.',
-    category: 'presence',
+    title: 'GitHub',
+    description: 'Public engineering profile and project history.',
+    category: 'distribution',
     url: 'https://github.com/justinwessels',
-    status: 'active',
+    status: 'verified',
     icon: 'github',
   },
   {
-    id: 'search-presence',
-    title: 'Growing Search Presence',
-    description: 'Indexed and discoverable across major search engines.',
-    category: 'presence',
-    status: 'growing',
-    icon: 'search',
+    id: 'trusted-adults',
+    title: 'Trusted Adults Connected',
+    description: `${metricDisplay('trusted-adults')} trusted adults connected on the platform.`,
+    category: 'impact',
+    status: 'verified',
+    icon: 'users',
   },
   {
     id: 'family-calls',
-    title: 'Family Calls',
-    description: '10,000+ completed family calls on the platform.',
+    title: 'Safe Family Calls',
+    description: `${metricDisplay('safe-family-calls')} safe family calls completed.`,
     category: 'impact',
     status: 'verified',
     icon: 'calls',
   },
   {
     id: 'global-availability',
-    title: 'Global Availability',
-    description: 'Available in 40+ countries worldwide.',
+    title: 'Countries Available',
+    description: `Available in ${metricDisplay('countries')} countries via App Store and Google Play.`,
     category: 'impact',
     status: 'verified',
     icon: 'globe',
-  },
-  {
-    id: 'companies',
-    title: 'Companies Founded',
-    description: 'Four ventures founded and operated.',
-    category: 'organization',
-    status: 'verified',
-    icon: 'building',
-  },
-  {
-    id: 'products',
-    title: 'Products Shipped',
-    description: 'Multiple published applications across platforms.',
-    category: 'organization',
-    status: 'verified',
-    icon: 'package',
   },
 ]
 
 export const evidenceCategories = [
   { id: 'distribution', label: 'Distribution' },
-  { id: 'presence', label: 'Presence' },
   { id: 'impact', label: 'Impact' },
-  { id: 'organization', label: 'Organization' },
 ] as const
