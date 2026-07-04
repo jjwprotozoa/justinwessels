@@ -1,0 +1,24 @@
+# .github/workflows/deploy-production.yml — Deploy V2 to Vercel production
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Vercel production
+        run: npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --scope=justins-projects-f7a019bf
+        env:
+          VERCEL_PROJECT_ID: prj_foh9O7QvHmCofk8HwNbh4ak0kpur
