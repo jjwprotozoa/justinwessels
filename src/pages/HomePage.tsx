@@ -17,7 +17,7 @@ export function HomePage() {
       <PageMetaTags meta={pageMeta.home} />
       <JsonLd data={getAllJsonLd()} />
       <Hero />
-      <MetricsBar showHeader={false} variant="bar" className="-mt-4 pb-16 md:pb-20" />
+      <MetricsBar showHeader={false} variant="bar" className="pb-10 md:pb-16" />
       <KidsCallHomeSection />
       <MissionSection />
       <EvidenceSection compact />

@@ -60,24 +60,29 @@ function MetricItem({
   if (isBar) {
     return (
       <motion.article
-        className="group px-2 py-1 text-center"
+        className="group px-1 py-0.5 text-center md:px-2 md:py-1"
         title={metric.description}
-        initial={reducedMotion ? false : { opacity: 0, y: 12 }}
+        initial={reducedMotion ? false : { opacity: 0, y: 8 }}
         animate={active && !reducedMotion ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.4, delay: index * 0.03, ease: [0.22, 1, 0.36, 1] }}
       >
         {Icon && (
-          <Icon className="mx-auto mb-2 h-4 w-4 text-kch opacity-70" aria-hidden="true" />
+          <Icon
+            className="mx-auto mb-1 h-3.5 w-3.5 text-kch opacity-70 md:mb-2 md:h-4 md:w-4"
+            aria-hidden="true"
+          />
         )}
         <p
           className={cn(
             'font-semibold tracking-tight tabular-nums text-foreground',
-            metric.id === 'platforms' ? 'text-xs leading-snug md:text-sm' : 'text-xl md:text-2xl',
+            metric.id === 'platforms'
+              ? 'text-[10px] leading-snug md:text-sm'
+              : 'text-base md:text-2xl',
           )}
         >
           {display}
         </p>
-        <h3 className="mt-1 text-[10px] font-medium text-muted leading-snug md:text-xs">
+        <h3 className="mt-0.5 text-[9px] font-medium leading-snug text-muted md:mt-1 md:text-xs">
           {metric.title}
         </h3>
         {metric.description && <span className="sr-only">{metric.description}</span>}
@@ -163,13 +168,13 @@ export function MetricsBar({
           ref={ref as React.RefObject<HTMLDivElement>}
           className={cn(
             isBar &&
-              'rounded-2xl border border-border/60 bg-accent/40 px-4 py-8 md:px-8 md:py-10',
+              'rounded-xl border border-border/60 bg-accent/40 px-3 py-4 md:rounded-2xl md:px-8 md:py-8',
           )}
         >
           <div
             className={cn(
               isBar
-                ? 'grid grid-cols-2 gap-6 sm:grid-cols-4 xl:grid-cols-8'
+                ? 'grid grid-cols-4 gap-x-2 gap-y-4 sm:grid-cols-4 md:gap-6 xl:grid-cols-8'
                 : 'grid gap-3 sm:grid-cols-2 lg:grid-cols-4',
             )}
           >
@@ -185,7 +190,7 @@ export function MetricsBar({
           </div>
 
           {isBar && (
-            <p className="mt-6 text-center text-[11px] text-muted-foreground">
+            <p className="mt-3 text-center text-[10px] text-muted-foreground md:mt-5 md:text-[11px]">
               Verified · Updated {metricsConfig.lastUpdated}
             </p>
           )}
