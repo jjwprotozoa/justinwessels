@@ -27,14 +27,14 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pb-16 pt-8 md:pb-24 md:pt-16"
+      className="relative overflow-hidden pb-10 pt-8 md:pb-16 md:pt-16"
       aria-labelledby="hero-heading"
     >
       <div className="pointer-events-none absolute inset-0 gradient-subtle" />
-      <div className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] -translate-y-1/4 translate-x-1/4 rounded-full bg-hero-glow blur-3xl" />
+      <div className="pointer-events-none absolute top-0 right-0 hidden h-[600px] w-[600px] -translate-y-1/4 translate-x-1/4 rounded-full bg-hero-glow blur-3xl md:block" />
 
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -46,7 +46,7 @@ export function Hero() {
 
             <motion.h1
               id="hero-heading"
-              className="text-5xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl"
+              className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-7xl"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -55,7 +55,7 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              className="mt-6 max-w-md text-base text-muted leading-relaxed text-balance"
+              className="mt-5 max-w-md text-base text-muted leading-relaxed text-balance md:mt-6"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -64,7 +64,7 @@ export function Hero() {
             </motion.p>
 
             <motion.div
-              className="mt-10 flex flex-wrap gap-3"
+              className="mt-8 flex flex-wrap gap-3 md:mt-10"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -82,6 +82,7 @@ export function Hero() {
           </div>
 
           <motion.div
+            className="hidden lg:block"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}

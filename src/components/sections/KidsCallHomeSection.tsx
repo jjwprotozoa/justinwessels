@@ -5,50 +5,45 @@ import { kidsCallHome } from '@/data/kids-call-home'
 import { Section } from '@/components/ui/section'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { Button } from '@/components/ui/button'
+import { ProductMockup } from '@/components/visuals/ProductMockup'
 import { FlagshipPanel } from '@/components/visuals/FlagshipPanel'
 
 export function KidsCallHomeSection() {
   return (
-    <Section id="kids-call-home" className="gradient-subtle" animate={false}>
-      <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-20">
-        <div>
-          <Eyebrow className="mb-4">Flagship product</Eyebrow>
-          <h2 className="text-5xl font-semibold tracking-tight text-balance md:text-6xl lg:text-7xl">
-            {kidsCallHome.name}
-          </h2>
-          <p className="mt-6 max-w-sm text-lg text-muted text-balance">{kidsCallHome.summary}</p>
+    <Section id="kids-call-home" className="gradient-subtle py-16 md:py-28" animate={false}>
+      <ProductMockup className="mb-2 lg:hidden" />
 
-          <div className="mt-8 flex flex-wrap gap-2">
-            {kidsCallHome.platforms.map((p) => (
-              <a
-                key={p.name}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium transition-colors hover:border-foreground/20"
-              >
-                {p.name}
-              </a>
-            ))}
+      <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="flex flex-col gap-8">
+          <div>
+            <Eyebrow className="mb-3">Flagship product</Eyebrow>
+            <h2 className="text-4xl font-semibold tracking-tight text-balance md:text-6xl lg:text-7xl">
+              {kidsCallHome.name}
+            </h2>
+            <p className="mt-4 max-w-md text-base text-muted text-balance md:mt-6 md:text-lg">
+              {kidsCallHome.summary}
+            </p>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Button asChild size="lg">
+          <div className="flex flex-wrap gap-2.5">
+            <Button asChild size="lg" className="h-11">
               <a href={kidsCallHome.url} target="_blank" rel="noopener noreferrer">
                 Visit site
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </a>
             </Button>
-            <Button asChild variant="secondary" size="lg">
+            <Button asChild variant="secondary" size="lg" className="h-11">
               <Link to="/kids-call-home">
                 Details
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
           </div>
+
+          <FlagshipPanel />
         </div>
 
-        <FlagshipPanel className="lg:pt-2" />
+        <ProductMockup className="hidden lg:block" />
       </div>
     </Section>
   )

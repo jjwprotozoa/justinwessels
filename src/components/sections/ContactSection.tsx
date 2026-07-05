@@ -12,14 +12,14 @@ export function ContactSection({ compact = false, hideHeader }: { compact?: bool
       eyebrow="Contact"
       title={contactConfig.title}
       description={contactConfig.description}
-      className={compact ? 'py-20 md:py-28' : undefined}
+      className={compact ? 'py-16 md:py-24' : undefined}
       hideHeader={hideHeader}
     >
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="flex flex-col gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-4">
         {contactConfig.channels.map((channel) => (
           <div
             key={channel.id}
-            className="rounded-xl border border-border/60 px-6 py-5 transition-colors hover:border-border"
+            className="rounded-xl border border-border/60 px-5 py-4 transition-colors hover:border-border sm:px-6 sm:py-5"
           >
             <p className="text-xs font-medium text-muted uppercase tracking-wide">
               {channel.label}
