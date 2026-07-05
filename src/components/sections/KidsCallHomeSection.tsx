@@ -5,13 +5,13 @@ import { kidsCallHome } from '@/data/kids-call-home'
 import { Section } from '@/components/ui/section'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { Button } from '@/components/ui/button'
-import { ProductMockup } from '@/components/visuals/ProductMockup'
+import { FlagshipPanel } from '@/components/visuals/FlagshipPanel'
 
 export function KidsCallHomeSection() {
   return (
     <Section id="kids-call-home" className="gradient-subtle" animate={false}>
-      <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
-        <div className="order-2 lg:order-1">
+      <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-20">
+        <div>
           <Eyebrow className="mb-4">Flagship product</Eyebrow>
           <h2 className="text-5xl font-semibold tracking-tight text-balance md:text-6xl lg:text-7xl">
             {kidsCallHome.name}
@@ -48,9 +48,7 @@ export function KidsCallHomeSection() {
           </div>
         </div>
 
-        <div className="order-1 lg:order-2">
-          <ProductMockup />
-        </div>
+        <FlagshipPanel className="lg:pt-2" />
       </div>
     </Section>
   )
