@@ -1,4 +1,4 @@
-// src/components/ui/eyebrow.tsx — Consistent editorial eyebrow label
+// src/components/ui/eyebrow.tsx — Apple-style eyebrow label
 import { cn } from '@/lib/utils'
 
 interface EyebrowProps {
@@ -10,7 +10,7 @@ export function Eyebrow({ children, className }: EyebrowProps) {
   return (
     <p
       className={cn(
-        'text-xs font-medium tracking-[0.14em] text-muted uppercase',
+        'text-[11px] font-semibold tracking-[0.12em] text-[#0071e3] uppercase sm:text-xs',
         className,
       )}
     >

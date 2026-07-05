@@ -82,7 +82,7 @@ function MetricItem({
         >
           {display}
         </p>
-        <h3 className="mt-0.5 text-[9px] font-medium leading-snug text-muted md:mt-1 md:text-xs">
+        <h3 className="mt-0.5 text-[9px] font-medium leading-snug text-muted-foreground md:mt-1 md:text-xs">
           {metric.title}
         </h3>
         {metric.description && <span className="sr-only">{metric.description}</span>}
@@ -92,7 +92,7 @@ function MetricItem({
 
   return (
     <motion.article
-      className="group relative rounded-xl border border-border/60 bg-card/50 px-5 py-4 transition-colors hover:border-border hover:bg-card"
+      className="group relative liquid-glass-card rounded-2xl px-5 py-4 transition-transform duration-200 hover:scale-[1.01]"
       title={metric.description}
       initial={reducedMotion ? false : { opacity: 0, y: 12 }}
       animate={active && !reducedMotion ? { opacity: 1, y: 0 } : {}}
@@ -108,7 +108,7 @@ function MetricItem({
           >
             {display}
           </p>
-          <h3 className="mt-1.5 text-xs font-medium text-muted leading-snug">{metric.title}</h3>
+          <h3 className="mt-1.5 text-xs font-medium leading-snug text-muted-foreground">{metric.title}</h3>
         </div>
         {Icon && (
           <Icon className="h-4 w-4 shrink-0 text-muted-foreground/60" aria-hidden="true" />
@@ -147,18 +147,18 @@ export function MetricsBar({
     <section
       id={id}
       className={cn(
-        isBar ? 'py-0' : compact ? 'py-16 md:py-20' : 'py-16 md:py-24',
+        isBar ? 'px-3 py-0 sm:px-4' : compact ? 'px-3 py-12 sm:px-4 md:py-16' : 'px-3 py-12 sm:px-4 md:py-20',
         className,
       )}
       aria-labelledby={showHeader ? 'metrics-heading' : undefined}
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl">
         {showHeader && (
-          <header className="mb-10 max-w-xl">
+          <header className="mb-8 max-w-xl">
             <h2 id="metrics-heading" className="text-3xl font-semibold tracking-tight md:text-4xl">
               By the numbers
             </h2>
-            <p className="mt-2 text-sm text-muted">
+            <p className="mt-2 text-sm text-muted-foreground">
               Verified metrics · Updated {metricsConfig.lastUpdated}
             </p>
           </header>
@@ -168,7 +168,7 @@ export function MetricsBar({
           ref={ref as React.RefObject<HTMLDivElement>}
           className={cn(
             isBar &&
-              'rounded-xl border border-border/60 bg-accent/40 px-3 py-4 md:rounded-2xl md:px-8 md:py-8',
+              'liquid-glass rounded-[1.25rem] px-3 py-4 sm:rounded-[1.5rem] sm:px-6 sm:py-5 md:px-8 md:py-6',
           )}
         >
           <div

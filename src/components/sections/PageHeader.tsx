@@ -1,5 +1,6 @@
-// src/components/sections/PageHeader.tsx — Reusable page header for subpages
+// src/components/sections/PageHeader.tsx — Subpage header with glass surface
 import { motion } from 'framer-motion'
+import { Eyebrow } from '@/components/ui/eyebrow'
 
 interface PageHeaderProps {
   eyebrow?: string
@@ -10,47 +11,26 @@ interface PageHeaderProps {
 
 export function PageHeader({ eyebrow, title, description, lastUpdated }: PageHeaderProps) {
   return (
-    <header className="border-b border-border py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        {eyebrow && (
-          <motion.p
-            className="mb-4 text-sm font-medium tracking-wide text-muted uppercase"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            {eyebrow}
-          </motion.p>
-        )}
-        <motion.h1
-          className="text-5xl font-semibold tracking-tight text-balance md:text-6xl lg:text-7xl"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-        >
+    <header className="px-3 pb-2 pt-2 sm:px-4">
+      <motion.div
+        className="mx-auto max-w-6xl liquid-glass rounded-[1.5rem] p-6 sm:rounded-[1.75rem] sm:p-8 md:p-10"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      >
+        {eyebrow && <Eyebrow className="mb-3">{eyebrow}</Eyebrow>}
+        <h1 className="text-balance text-[2rem] font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
           {title}
-        </motion.h1>
+        </h1>
         {description && (
-          <motion.p
-            className="mt-6 max-w-lg text-base text-muted leading-relaxed"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg">
             {description}
-          </motion.p>
+          </p>
         )}
         {lastUpdated && (
-          <motion.p
-            className="mt-4 text-xs text-muted-foreground"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-          >
-            Last updated · {lastUpdated}
-          </motion.p>
+          <p className="mt-4 text-xs text-muted-foreground">Last updated · {lastUpdated}</p>
         )}
-      </div>
+      </motion.div>
     </header>
   )
 }

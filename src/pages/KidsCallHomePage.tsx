@@ -1,4 +1,4 @@
-// src/pages/KidsCallHomePage.tsx — Dedicated Kids Call Home page
+// src/pages/KidsCallHomePage.tsx — Dedicated Kids Call Home page with glass surfaces
 import { ExternalLink } from 'lucide-react'
 import { kidsCallHome } from '@/data/kids-call-home'
 import { getMetric, metricsConfig } from '@/data/metrics'
@@ -29,19 +29,19 @@ export function KidsCallHomePage() {
       <PageMetaTags meta={pageMeta.kidsCallHome} />
       <JsonLd data={breadcrumbs} />
 
-      <header className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-10 md:py-14">
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <header className="px-3 pt-2 sm:px-4">
+        <div className="mx-auto max-w-6xl liquid-glass rounded-[1.5rem] p-6 sm:rounded-[1.75rem] sm:p-8">
+          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
             <div>
-              <Eyebrow className="mb-3">Flagship</Eyebrow>
-              <h1 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl lg:text-6xl">
+              <Eyebrow className="mb-2.5">Flagship</Eyebrow>
+              <h1 className="text-balance text-[2rem] font-semibold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
                 {kidsCallHome.name}
               </h1>
-              <p className="mt-4 max-w-md text-base text-muted leading-relaxed">
+              <p className="mt-3 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-4">
                 {kidsCallHome.summary}
               </p>
             </div>
-            <ProductMockup compact className="lg:justify-self-end" />
+            <ProductMockup compact className="mx-auto lg:justify-self-end" />
           </div>
         </div>
       </header>
@@ -51,21 +51,21 @@ export function KidsCallHomePage() {
         showHeader={false}
         variant="bar"
         metrics={kchMetrics}
-        className="py-6 md:py-8"
+        className="px-3 py-4 sm:px-4 md:py-6"
       />
 
-      <Section eyebrow="Features" title="Built for families." className="gradient-subtle py-16 md:py-24" animate={false}>
-        <dl className="grid gap-6 sm:grid-cols-3 md:gap-8">
+      <Section eyebrow="Features" title="Built for families." compact glass animate={false}>
+        <dl className="grid gap-3 sm:grid-cols-3">
           {kidsCallHome.features.map((f) => (
-            <div key={f.title}>
-              <dt className="font-medium">{f.title}</dt>
-              <dd className="mt-1 text-sm text-muted leading-snug">{f.description}</dd>
+            <div key={f.title} className="liquid-glass-card rounded-2xl p-4 sm:p-5">
+              <dt className="font-semibold tracking-tight">{f.title}</dt>
+              <dd className="mt-1.5 text-sm leading-snug text-muted-foreground">{f.description}</dd>
             </div>
           ))}
         </dl>
       </Section>
 
-      <Section eyebrow="Platforms" title="Available everywhere." className="py-16 md:py-24" animate={false}>
+      <Section eyebrow="Platforms" title="Available everywhere." compact glass animate={false}>
         <div className="flex flex-wrap gap-3">
           {kidsCallHome.platforms.map((p) => (
             <a
@@ -73,7 +73,7 @@ export function KidsCallHomePage() {
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-w-[120px] flex-col items-center rounded-xl border border-border/60 px-6 py-5 transition-colors hover:border-border md:px-8 md:py-6"
+              className="liquid-glass-card flex min-w-[120px] flex-col items-center rounded-2xl px-6 py-5 transition-transform duration-200 hover:scale-[1.02] md:px-8 md:py-6"
             >
               <p className="text-lg font-semibold">{p.name}</p>
               <Badge variant="verified" className="mt-2">
@@ -82,9 +82,9 @@ export function KidsCallHomePage() {
             </a>
           ))}
         </div>
-        <div className="mt-8 flex flex-wrap gap-3 md:mt-10">
+        <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap">
           {kidsCallHome.links.map((link) => (
-            <Button key={link.label} asChild variant={link.primary ? 'default' : 'secondary'}>
+            <Button key={link.label} asChild variant={link.primary ? 'primary' : 'secondary'} className="w-full sm:w-auto">
               <a href={link.url} target="_blank" rel="noopener noreferrer">
                 {link.label}
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -94,21 +94,21 @@ export function KidsCallHomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="Timeline" title="Milestones." className="pb-20 md:pb-28" animate={false}>
-        <div className="max-w-xl space-y-5">
+      <Section eyebrow="Timeline" title="Milestones." compact glass animate={false}>
+        <div className="max-w-xl space-y-3">
           {kidsCallHome.timeline.map((event) => (
-            <div key={event.title} className="flex gap-6 md:gap-8">
-              <time className="w-12 shrink-0 text-sm font-medium text-muted tabular-nums md:w-14">
+            <div key={event.title} className="liquid-glass-card flex gap-4 rounded-2xl p-4 sm:gap-5 sm:p-5">
+              <time className="w-12 shrink-0 text-sm font-medium tabular-nums text-muted-foreground sm:w-14">
                 {event.date}
               </time>
               <div>
-                <h3 className="font-medium">{event.title}</h3>
-                <p className="mt-0.5 text-sm text-muted leading-snug">{event.description}</p>
+                <h3 className="font-semibold tracking-tight">{event.title}</h3>
+                <p className="mt-0.5 text-sm leading-snug text-muted-foreground">{event.description}</p>
               </div>
             </div>
           ))}
         </div>
-        <p className="mt-6 text-xs text-muted-foreground">
+        <p className="mt-5 text-xs text-muted-foreground">
           Metrics updated {metricsConfig.lastUpdated}
         </p>
       </Section>
