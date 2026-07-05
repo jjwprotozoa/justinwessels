@@ -2,13 +2,31 @@
 import { motion } from 'framer-motion'
 import { Phone, Video, Shield, Heart } from 'lucide-react'
 import { getMetricValue } from '@/data/metrics'
+import { cn } from '@/lib/utils'
 
-export function ProductMockup() {
+interface ProductMockupProps {
+  compact?: boolean
+  className?: string
+}
+
+export function ProductMockup({ compact = false, className }: ProductMockupProps) {
   const countries = getMetricValue('countries')
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-lg" aria-hidden="true">
-      <div className="absolute inset-0 rounded-full bg-hero-glow blur-3xl" />
+    <div
+      className={cn(
+        'relative mx-auto aspect-square w-full',
+        compact ? 'max-w-[260px] sm:max-w-xs' : 'max-w-lg',
+        className,
+      )}
+      aria-hidden="true"
+    >
+      <div
+        className={cn(
+          'absolute inset-0 rounded-full bg-hero-glow blur-3xl',
+          compact && 'opacity-60',
+        )}
+      />
 
       <motion.div
         className="absolute top-8 right-0 w-[75%] rounded-2xl border border-glass-border glass p-5 shadow-elevated"
