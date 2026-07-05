@@ -1,6 +1,6 @@
 // src/components/layout/Footer.tsx — Site footer
 import { Link } from 'react-router-dom'
-import { footerNav } from '@/data/navigation'
+import { footerNavGroups } from '@/data/navigation'
 import { siteConfig } from '@/data/site'
 
 export function Footer() {
@@ -17,15 +17,39 @@ export function Footer() {
             </p>
           </div>
 
-          <nav className="grid grid-cols-2 gap-x-12 gap-y-3 sm:grid-cols-3" aria-label="Footer navigation">
-            {footerNav.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="text-sm text-muted transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </Link>
+          <nav
+            className="grid grid-cols-2 gap-8 sm:grid-cols-3"
+            aria-label="Footer navigation"
+          >
+            {footerNavGroups.map((group) => (
+              <div key={group.title}>
+                <p className="text-xs font-medium tracking-wide text-muted uppercase">
+                  {group.title}
+                </p>
+                <ul className="mt-3 space-y-2">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted transition-colors hover:text-foreground"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          to={link.href}
+                          className="text-sm text-muted transition-colors hover:text-foreground"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </nav>
         </div>

@@ -5,9 +5,10 @@ interface PageHeaderProps {
   eyebrow?: string
   title: string
   description?: string
+  lastUpdated?: string
 }
 
-export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
+export function PageHeader({ eyebrow, title, description, lastUpdated }: PageHeaderProps) {
   return (
     <header className="border-b border-border py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
@@ -37,6 +38,16 @@ export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {description}
+          </motion.p>
+        )}
+        {lastUpdated && (
+          <motion.p
+            className="mt-4 text-xs text-muted-foreground"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            Last updated · {lastUpdated}
           </motion.p>
         )}
       </div>

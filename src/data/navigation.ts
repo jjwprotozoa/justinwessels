@@ -5,6 +5,17 @@ export interface NavItem {
   description?: string
 }
 
+export interface FooterNavLink {
+  label: string
+  href: string
+  external?: boolean
+}
+
+export interface FooterNavGroup {
+  title: string
+  links: FooterNavLink[]
+}
+
 export const primaryNav: NavItem[] = [
   { label: 'Kids Call Home', href: '/kids-call-home', description: 'Flagship product' },
   { label: 'Journey', href: '/journey', description: 'Founder timeline' },
@@ -13,12 +24,27 @@ export const primaryNav: NavItem[] = [
   { label: 'Contact', href: '/contact', description: 'Get in touch' },
 ]
 
-export const footerNav: NavItem[] = [
-  { label: 'Kids Call Home', href: '/kids-call-home' },
-  { label: 'Journey', href: '/journey' },
-  { label: 'Evidence', href: '/evidence' },
-  { label: 'Ventures', href: '/ventures' },
-  { label: 'Contact', href: '/contact' },
+export const footerNavGroups: FooterNavGroup[] = [
+  {
+    title: 'Products',
+    links: [{ label: 'Kids Call Home', href: 'https://kidscallhome.com', external: true }],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'Journey', href: '/journey' },
+      { label: 'Evidence', href: '/evidence' },
+      { label: 'Ventures', href: '/ventures' },
+    ],
+  },
+  {
+    title: 'Connect',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/jjwprotozoa', external: true },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/justinwessels/', external: true },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
 ]
 
 export const homeSections = [

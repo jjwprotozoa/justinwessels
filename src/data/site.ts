@@ -17,8 +17,8 @@ export const siteConfig = {
     email: 'hello@justinwessels.com',
     location: 'Global',
     sameAs: [
-      'https://www.linkedin.com/in/justinwessels',
-      'https://github.com/justinwessels',
+      'https://www.linkedin.com/in/justinwessels/',
+      'https://github.com/jjwprotozoa',
       'https://kidscallhome.com',
     ],
   },

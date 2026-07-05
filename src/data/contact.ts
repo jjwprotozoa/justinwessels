@@ -28,8 +28,8 @@ export const contactConfig = {
     {
       id: 'github',
       label: 'GitHub',
-      value: '@justinwessels',
-      href: 'https://github.com/justinwessels',
+      value: '@jjwprotozoa',
+      href: 'https://github.com/jjwprotozoa',
       type: 'social',
     },
     {

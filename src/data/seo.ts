@@ -29,7 +29,7 @@ export const pageMeta: Record<string, PageMeta> = {
   },
   evidence: {
     title: 'Evidence — Justin Wessels',
-    description: 'Verifiable facts from distribution, platforms, and public presence.',
+    description: 'Verifiable distribution, production metrics, and public presence for due diligence.',
     path: '/evidence',
   },
   ventures: {
