@@ -15,41 +15,66 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
   return (
     <div
       className={cn(
-        'relative mx-auto aspect-square w-full',
-        compact ? 'max-w-[260px] sm:max-w-xs' : 'max-w-lg',
+        'relative mx-auto w-full overflow-hidden',
+        compact
+          ? 'h-[200px] max-w-[272px] sm:h-[220px] sm:max-w-[300px]'
+          : 'aspect-square max-w-lg',
         className,
       )}
       aria-hidden="true"
     >
       <div
         className={cn(
-          'absolute inset-0 rounded-full bg-hero-glow blur-3xl',
-          compact && 'opacity-60',
+          'pointer-events-none absolute inset-0 rounded-full bg-hero-glow blur-3xl',
+          compact ? 'opacity-50' : 'opacity-100',
         )}
       />
 
       <motion.div
-        className="absolute top-8 right-0 w-[75%] rounded-2xl border border-glass-border glass p-5 shadow-elevated"
+        className={cn(
+          'absolute rounded-2xl border border-glass-border glass shadow-elevated',
+          compact
+            ? 'top-1 right-0 w-[72%] p-3 sm:top-2 sm:p-4'
+            : 'top-8 right-0 w-[75%] p-5',
+        )}
         initial={{ opacity: 0, y: 20, rotate: 3 }}
         animate={{ opacity: 1, y: 0, rotate: 3 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <div className="mb-4 flex items-center gap-2">
-          <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-          <span className="text-xs font-medium text-muted">Family Dashboard</span>
+        <div className={cn('flex items-center gap-2', compact ? 'mb-2' : 'mb-4')}>
+          <div className="h-2 w-2 rounded-full bg-emerald-400 sm:h-2.5 sm:w-2.5" />
+          <span className={cn('font-medium text-muted', compact ? 'text-[10px]' : 'text-xs')}>
+            Family Dashboard
+          </span>
         </div>
-        <div className="space-y-2">
+        <div className={compact ? 'space-y-1' : 'space-y-2'}>
           {['Mom', 'Dad', 'Grandma'].map((name) => (
-            <div key={name} className="flex items-center gap-3 rounded-xl bg-accent/60 px-3 py-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-kch-muted">
-                <Heart className="h-3.5 w-3.5 text-kch" />
+            <div
+              key={name}
+              className={cn(
+                'flex items-center rounded-xl bg-accent/60',
+                compact ? 'gap-2 px-2 py-1.5' : 'gap-3 px-3 py-2.5',
+              )}
+            >
+              <div
+                className={cn(
+                  'flex items-center justify-center rounded-full bg-kch-muted',
+                  compact ? 'h-6 w-6' : 'h-8 w-8',
+                )}
+              >
+                <Heart className={cn('text-kch', compact ? 'h-3 w-3' : 'h-3.5 w-3.5')} />
               </div>
-              <div className="flex-1">
-                <p className="text-xs font-medium">{name}</p>
-                <p className="text-[10px] text-muted">Available</p>
+              <div className="min-w-0 flex-1">
+                <p className={cn('font-medium', compact ? 'text-[10px]' : 'text-xs')}>{name}</p>
+                <p className={cn('text-muted', compact ? 'text-[9px]' : 'text-[10px]')}>Available</p>
               </div>
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-kch text-white">
-                <Video className="h-3 w-3" />
+              <div
+                className={cn(
+                  'flex items-center justify-center rounded-full bg-kch text-white',
+                  compact ? 'h-5 w-5' : 'h-7 w-7',
+                )}
+              >
+                <Video className={cn(compact ? 'h-2.5 w-2.5' : 'h-3 w-3')} />
               </div>
             </div>
           ))}
@@ -57,23 +82,40 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-0 w-[65%] rounded-[2rem] border border-glass-border bg-card p-3 shadow-elevated"
+        className={cn(
+          'absolute bottom-0 left-0 border border-glass-border bg-card shadow-elevated',
+          compact
+            ? 'w-[58%] rounded-[1.5rem] p-2'
+            : 'w-[65%] rounded-[2rem] p-3',
+        )}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
       >
-        <div className="overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-kch-muted/40 to-background">
-          <div className="flex items-center justify-between px-5 py-2">
-            <span className="text-[10px] font-medium">9:41</span>
-            <div className="mx-auto h-5 w-16 rounded-full bg-foreground/10" />
-            <Phone className="h-3 w-3 text-muted" />
+        <div
+          className={cn(
+            'overflow-hidden bg-gradient-to-b from-kch-muted/40 to-background',
+            compact ? 'rounded-[1.15rem]' : 'rounded-[1.5rem]',
+          )}
+        >
+          <div className={cn('flex items-center justify-between', compact ? 'px-3 py-1' : 'px-5 py-2')}>
+            <span className={cn('font-medium', compact ? 'text-[9px]' : 'text-[10px]')}>9:41</span>
+            <div
+              className={cn(
+                'mx-auto rounded-full bg-foreground/10',
+                compact ? 'h-3.5 w-12' : 'h-5 w-16',
+              )}
+            />
+            <Phone className={cn('text-muted', compact ? 'h-2.5 w-2.5' : 'h-3 w-3')} />
           </div>
 
-          <div className="px-5 pb-6 pt-2">
-            <p className="text-sm font-semibold">Kids Call Home</p>
-            <p className="mt-0.5 text-[10px] text-muted">Tap to call family</p>
+          <div className={cn(compact ? 'px-3 pb-3 pt-0.5' : 'px-5 pb-6 pt-2')}>
+            <p className={cn('font-semibold', compact ? 'text-xs' : 'text-sm')}>Kids Call Home</p>
+            <p className={cn('text-muted', compact ? 'text-[9px]' : 'text-[10px]')}>
+              Tap to call family
+            </p>
 
-            <div className="mt-5 grid grid-cols-2 gap-3">
+            <div className={cn('grid grid-cols-2', compact ? 'mt-2 gap-1.5' : 'mt-5 gap-3')}>
               {[
                 { name: 'Mom', color: 'bg-rose-500' },
                 { name: 'Dad', color: 'bg-blue-500' },
@@ -82,21 +124,44 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
               ].map((contact) => (
                 <div
                   key={contact.name}
-                  className="flex flex-col items-center gap-2 rounded-2xl bg-card/80 p-4 shadow-premium"
+                  className={cn(
+                    'flex flex-col items-center rounded-2xl bg-card/80 shadow-premium',
+                    compact ? 'gap-1 p-2' : 'gap-2 p-4',
+                  )}
                 >
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-full ${contact.color} text-sm font-semibold text-white`}
+                    className={cn(
+                      `flex items-center justify-center rounded-full font-semibold text-white ${contact.color}`,
+                      compact ? 'h-8 w-8 text-[10px]' : 'h-12 w-12 text-sm',
+                    )}
                   >
                     {contact.name[0]}
                   </div>
-                  <span className="text-[11px] font-medium">{contact.name}</span>
+                  <span className={cn('font-medium', compact ? 'text-[9px]' : 'text-[11px]')}>
+                    {contact.name}
+                  </span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5">
-              <Shield className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-[10px] font-medium text-emerald-700 dark:text-emerald-400">
+            <div
+              className={cn(
+                'flex items-center justify-center rounded-full bg-emerald-500/10',
+                compact ? 'mt-2 gap-1 px-2 py-0.5' : 'mt-4 gap-1.5 px-3 py-1.5',
+              )}
+            >
+              <Shield
+                className={cn(
+                  'text-emerald-600 dark:text-emerald-400',
+                  compact ? 'h-2.5 w-2.5' : 'h-3 w-3',
+                )}
+              />
+              <span
+                className={cn(
+                  'font-medium text-emerald-700 dark:text-emerald-400',
+                  compact ? 'text-[8px]' : 'text-[10px]',
+                )}
+              >
                 Parent approved
               </span>
             </div>
@@ -105,12 +170,19 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
       </motion.div>
 
       <motion.div
-        className="absolute top-1/2 right-4 rounded-full border border-glass-border glass px-4 py-2 shadow-premium"
+        className={cn(
+          'absolute rounded-full border border-glass-border glass shadow-premium',
+          compact
+            ? 'top-[42%] right-0 px-2 py-0.5'
+            : 'top-1/2 right-4 px-4 py-2',
+        )}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-        <p className="text-xs font-semibold tabular-nums">{countries} countries</p>
+        <p className={cn('font-semibold tabular-nums', compact ? 'text-[10px]' : 'text-xs')}>
+          {countries} countries
+        </p>
       </motion.div>
     </div>
   )

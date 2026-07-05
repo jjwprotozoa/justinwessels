@@ -10,11 +10,12 @@ import { FlagshipPanel } from '@/components/visuals/FlagshipPanel'
 
 export function KidsCallHomeSection() {
   return (
-    <Section id="kids-call-home" className="gradient-subtle py-16 md:py-28" animate={false}>
-      <ProductMockup className="mb-2 lg:hidden" />
+    <Section id="kids-call-home" className="gradient-subtle py-12 md:py-28" animate={false}>
+      <div className="flex flex-col gap-6 lg:gap-12">
+        <ProductMockup compact className="lg:hidden" />
 
-      <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
-        <div className="flex flex-col gap-8">
+        <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-16">
+        <div className="flex flex-col gap-6 lg:gap-8">
           <div>
             <Eyebrow className="mb-3">Flagship product</Eyebrow>
             <h2 className="text-4xl font-semibold tracking-tight text-balance md:text-6xl lg:text-7xl">
@@ -44,6 +45,7 @@ export function KidsCallHomeSection() {
         </div>
 
         <ProductMockup className="hidden lg:block" />
+      </div>
       </div>
     </Section>
   )
