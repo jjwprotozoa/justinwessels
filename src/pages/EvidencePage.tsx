@@ -22,7 +22,7 @@ export function EvidencePage() {
         description="Verifiable facts from distribution, platforms, and public presence."
         lastUpdated={evidenceConfig.lastUpdated}
       />
-      <EvidenceSection hideHeader showProductMetrics />
+      <EvidenceSection hideHeader showProductMetrics glass={false} />
     </>
   )
 }

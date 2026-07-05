@@ -1,6 +1,7 @@
 // src/components/layout/Layout.tsx — Page layout wrapper
 import { Header } from './Header'
 import { Footer } from './Footer'
+import { AmbientBackground } from './AmbientBackground'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -8,7 +9,8 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col">
+      <AmbientBackground />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
@@ -16,7 +18,7 @@ export function Layout({ children }: LayoutProps) {
         Skip to content
       </a>
       <Header />
-      <main id="main-content" className="flex-1 pt-24">
+      <main id="main-content" className="flex-1 pt-[3.75rem] sm:pt-16 md:pt-[4.5rem]">
         {children}
       </main>
       <Footer />

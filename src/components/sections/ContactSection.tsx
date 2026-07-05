@@ -1,4 +1,4 @@
-// src/components/sections/ContactSection.tsx — Contact section
+// src/components/sections/ContactSection.tsx — Contact channels in glass tiles
 import { Link } from 'react-router-dom'
 import { ArrowRight, Mail, ExternalLink } from 'lucide-react'
 import { contactConfig } from '@/data/contact'
@@ -12,28 +12,29 @@ export function ContactSection({ compact = false, hideHeader }: { compact?: bool
       eyebrow="Contact"
       title={contactConfig.title}
       description={contactConfig.description}
-      className={compact ? 'py-16 md:py-24' : undefined}
       hideHeader={hideHeader}
+      compact={compact}
+      glass
     >
-      <div className="flex flex-col gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {contactConfig.channels.map((channel) => (
           <div
             key={channel.id}
-            className="rounded-xl border border-border/60 px-5 py-4 transition-colors hover:border-border sm:px-6 sm:py-5"
+            className="liquid-glass-card rounded-2xl px-4 py-4 sm:px-5 sm:py-5"
           >
-            <p className="text-xs font-medium text-muted uppercase tracking-wide">
+            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
               {channel.label}
             </p>
             <a
               href={channel.href}
               target={channel.type === 'email' ? undefined : '_blank'}
               rel={channel.type === 'email' ? undefined : 'noopener noreferrer'}
-              className="mt-2 flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70"
+              className="mt-2 flex items-center gap-2 text-sm font-semibold transition-opacity hover:opacity-80"
             >
               {channel.type === 'email' && <Mail className="h-4 w-4" aria-hidden="true" />}
-              {channel.value}
+              <span className="break-all">{channel.value}</span>
               {channel.type !== 'email' && (
-                <ExternalLink className="h-3 w-3 text-muted" aria-hidden="true" />
+                <ExternalLink className="h-3 w-3 shrink-0 text-muted-foreground" aria-hidden="true" />
               )}
             </a>
           </div>
@@ -41,7 +42,7 @@ export function ContactSection({ compact = false, hideHeader }: { compact?: bool
       </div>
 
       {!compact && (
-        <div className="mt-12">
+        <div className="mt-8 sm:mt-10">
           <Button asChild>
             <Link to="/contact">
               Contact page

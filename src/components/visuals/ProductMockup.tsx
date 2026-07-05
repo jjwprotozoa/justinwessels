@@ -32,7 +32,7 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
 
       <motion.div
         className={cn(
-          'absolute rounded-2xl border border-glass-border glass shadow-elevated',
+          'absolute rounded-2xl liquid-glass-card shadow-elevated',
           compact
             ? 'top-1 right-0 w-[72%] p-3 sm:top-2 sm:p-4'
             : 'top-8 right-0 w-[75%] p-5',
@@ -43,7 +43,7 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
       >
         <div className={cn('flex items-center gap-2', compact ? 'mb-2' : 'mb-4')}>
           <div className="h-2 w-2 rounded-full bg-emerald-400 sm:h-2.5 sm:w-2.5" />
-          <span className={cn('font-medium text-muted', compact ? 'text-[10px]' : 'text-xs')}>
+          <span className={cn('font-medium text-muted-foreground', compact ? 'text-[10px]' : 'text-xs')}>
             Family Dashboard
           </span>
         </div>
@@ -66,7 +66,7 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
               </div>
               <div className="min-w-0 flex-1">
                 <p className={cn('font-medium', compact ? 'text-[10px]' : 'text-xs')}>{name}</p>
-                <p className={cn('text-muted', compact ? 'text-[9px]' : 'text-[10px]')}>Available</p>
+                <p className={cn('text-muted-foreground', compact ? 'text-[9px]' : 'text-[10px]')}>Available</p>
               </div>
               <div
                 className={cn(
@@ -83,7 +83,7 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
 
       <motion.div
         className={cn(
-          'absolute bottom-0 left-0 border border-glass-border bg-card shadow-elevated',
+          'absolute bottom-0 left-0 liquid-glass-card shadow-elevated',
           compact
             ? 'w-[58%] rounded-[1.5rem] p-2'
             : 'w-[65%] rounded-[2rem] p-3',
@@ -106,12 +106,12 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
                 compact ? 'h-3.5 w-12' : 'h-5 w-16',
               )}
             />
-            <Phone className={cn('text-muted', compact ? 'h-2.5 w-2.5' : 'h-3 w-3')} />
+            <Phone className={cn('text-muted-foreground', compact ? 'h-2.5 w-2.5' : 'h-3 w-3')} />
           </div>
 
           <div className={cn(compact ? 'px-3 pb-3 pt-0.5' : 'px-5 pb-6 pt-2')}>
             <p className={cn('font-semibold', compact ? 'text-xs' : 'text-sm')}>Kids Call Home</p>
-            <p className={cn('text-muted', compact ? 'text-[9px]' : 'text-[10px]')}>
+            <p className={cn('text-muted-foreground', compact ? 'text-[9px]' : 'text-[10px]')}>
               Tap to call family
             </p>
 
@@ -171,7 +171,7 @@ export function ProductMockup({ compact = false, className }: ProductMockupProps
 
       <motion.div
         className={cn(
-          'absolute rounded-full border border-glass-border glass shadow-premium',
+          'absolute rounded-full liquid-glass-card shadow-premium',
           compact
             ? 'top-[42%] right-0 px-2 py-0.5'
             : 'top-1/2 right-4 px-4 py-2',

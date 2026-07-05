@@ -1,4 +1,4 @@
-// src/components/sections/EvidenceSection.tsx — Verifiable evidence cards
+// src/components/sections/EvidenceSection.tsx — Verifiable evidence in glass cards
 import { Link } from 'react-router-dom'
 import {
   Apple,
@@ -21,6 +21,7 @@ import {
 } from '@/data/evidence'
 import { Section } from '@/components/ui/section'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 const iconMap: Record<EvidenceType, typeof Globe> = {
   'app-store': Apple,
@@ -47,10 +48,10 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
       className="block h-full"
       aria-label={`${item.title} (opens in new tab)`}
     >
-      <article className="group flex h-full flex-col rounded-xl border border-border/60 bg-card/50 p-6 transition-colors hover:border-border hover:bg-card">
-        <Icon className="h-5 w-5 text-muted" aria-hidden="true" />
-        <h3 className="mt-4 font-medium">{item.title}</h3>
-        <p className="mt-1.5 flex-1 text-sm text-muted leading-snug">{item.description}</p>
+      <article className="liquid-glass-card group flex h-full flex-col rounded-2xl p-5 transition-transform duration-200 hover:scale-[1.01] sm:p-6">
+        <Icon className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
+        <h3 className="mt-4 font-semibold tracking-tight">{item.title}</h3>
+        <p className="mt-1.5 flex-1 text-sm leading-snug text-muted-foreground">{item.description}</p>
         {item.value && (
           <p className="mt-3 text-2xl font-semibold tracking-tight tabular-nums">{item.value}</p>
         )}
@@ -61,10 +62,10 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
 
 function EvidenceMetricCard({ metric }: { metric: EvidenceProductMetric }) {
   return (
-    <article className="group flex h-full flex-col rounded-xl border border-border/60 bg-card/50 p-6 transition-colors hover:border-border hover:bg-card">
+    <article className="liquid-glass-card flex h-full flex-col rounded-2xl p-5 sm:p-6">
       <p className="text-2xl font-semibold tracking-tight tabular-nums">{metric.value}</p>
-      <h3 className="mt-4 font-medium">{metric.title}</h3>
-      <p className="mt-1.5 flex-1 text-sm text-muted leading-snug">{metric.source}</p>
+      <h3 className="mt-4 font-semibold tracking-tight">{metric.title}</h3>
+      <p className="mt-1.5 flex-1 text-sm leading-snug text-muted-foreground">{metric.source}</p>
     </article>
   )
 }
@@ -74,11 +75,13 @@ export function EvidenceSection({
   hideHeader,
   compact,
   showProductMetrics,
+  glass,
 }: {
   limit?: number
   hideHeader?: boolean
   compact?: boolean
   showProductMetrics?: boolean
+  glass?: boolean
 }) {
   const items = limit ? evidenceItems.slice(0, limit) : evidenceItems
 
@@ -89,6 +92,7 @@ export function EvidenceSection({
       description="Verifiable facts. No testimonials."
       hideHeader={hideHeader}
       compact={compact}
+      glass={glass ?? !hideHeader}
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
@@ -97,7 +101,7 @@ export function EvidenceSection({
       </div>
 
       {showProductMetrics && (
-        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={cn('grid gap-3 sm:grid-cols-2 lg:grid-cols-3', items.length > 0 && 'mt-3')}>
           {evidenceProductMetrics.map((metric) => (
             <EvidenceMetricCard key={metric.id} metric={metric} />
           ))}
@@ -105,7 +109,7 @@ export function EvidenceSection({
       )}
 
       {limit && evidenceItems.length > limit && (
-        <div className="mt-12">
+        <div className="mt-8 sm:mt-10">
           <Button asChild variant="secondary">
             <Link to="/evidence">
               All evidence
