@@ -1,0 +1,26 @@
+{
+  "summary": [
+    {
+      "site": "justinwessels/dist",
+      "pages": 7,
+      "local_references_checked": 100,
+      "html_kb": 37.5,
+      "total_public_kb": 363.3
+    },
+    {
+      "site": "fluidinvestmentgroup/dist",
+      "pages": 11,
+      "local_references_checked": 154,
+      "html_kb": 60.4,
+      "total_public_kb": 190.6
+    },
+    {
+      "site": "axisinnovationgroup/dist",
+      "pages": 9,
+      "local_references_checked": 128,
+      "html_kb": 50.0,
+      "total_public_kb": 176.9
+    }
+  ],
+  "errors": []
+}
