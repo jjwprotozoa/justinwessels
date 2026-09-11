@@ -35,3 +35,9 @@ User supplied current SAM record during this task: FLUID INVESTMENT GROUP LLC, A
 
 ## Final implementation and checks
 27 static pages including three 404 pages. 382 local HTML links and asset references pass. All page titles and descriptions unique per site; canonicals and structured data parse. Fonts self-hosted. Justin production HTML serves directly at clean URLs and has no React hydration dependency; only a small print handler loads. Browser responsive checks cover all 24 content routes at mobile and tablet sizes. Axis email brief tested without sending. Fluid capability PDF is one rendered and inspected page. npm audit after compatible patches: zero vulnerabilities. No field Core Web Vitals measurements available; payload checks do not imply measured CWV scores.
+
+
+## September 2026 refinement
+User requested Axis-inspired styling across the ecosystem and fuller copy. Justin and Fluid now share Axis charcoal surfaces, lime accents and editorial typography. Expanded product, operating and engagement context.
+
+User confirmed building and owning CODM SquadUp. Public Google Play listing reviewed 11 September 2026: https://play.google.com/store/apps/details?id=com.codmsquadup.app . Listing names Fluid Investment Group LLC as publisher and describes teammate discovery, team management and tournaments for Call of Duty Mobile players. Added as a second owned product; no client relationship, Activision affiliation, unverified architecture, revenue or performance claims added. Product itself remains outside the website editing scope.
