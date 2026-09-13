@@ -41,3 +41,6 @@ User supplied current SAM record during this task: FLUID INVESTMENT GROUP LLC, A
 User requested Axis-inspired styling across the ecosystem and fuller copy. Justin and Fluid now share Axis charcoal surfaces, lime accents and editorial typography. Expanded product, operating and engagement context.
 
 User confirmed building and owning CODM SquadUp. Public Google Play listing reviewed 11 September 2026: https://play.google.com/store/apps/details?id=com.codmsquadup.app . Listing names Fluid Investment Group LLC as publisher and describes teammate discovery, team management and tournaments for Call of Duty Mobile players. Added as a second owned product; no client relationship, Activision affiliation, unverified architecture, revenue or performance claims added. Product itself remains outside the website editing scope.
+
+
+13 September 2026: Added original CODM SquadUp Play Store icon and screenshot, product/store navigation throughout each website, and explicit SoftwareApplication publisher/creator relationships. KCH Amazon B0HDSDRXKB and Microsoft 9P9SJWKCK28W links read from the public product marketing bundle. Both apps and their websites remain unmodified.
