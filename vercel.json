@@ -4,5 +4,17 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/journey",
+      "permanent": true
+    },
+    {
+      "source": "/writing",
+      "destination": "/evidence",
+      "permanent": true
+    }
+  ]
 }
